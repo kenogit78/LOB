@@ -1,0 +1,81 @@
+
+.container {
+    padding-top: 20rem;
+    max-width: 1450px;
+    margin: auto;
+    
+    p {
+        color: #858f9d;
+        font-size: 2.3rem;
+    }
+    
+    .p_start {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    h1 {
+        color: #dee5ee;
+        font-size: 5rem;
+        padding-bottom: 1rem;
+        span {
+            color: #1F7ACB;
+        }
+    }
+
+    .p_end {
+        font-weight: 500;
+        text-transform: capitalize;
+
+        span {
+            color: #1F7ACB;
+        }
+    }
+}
+
+.first_input, .second_input, .third_input, .sign_btn {
+        input {
+            background: #323645;
+            font-size: 1.6rem;
+            font-size: max(16px, 1rem);
+            font-family: inherit;
+            padding: 1.3rem 1rem;
+            border: 2px solid var(--input-border);
+            border-radius: 15px;
+            color: #fff;
+            transition: .1s all ease-in-out;
+        }
+
+        input:focus {
+            background: #323645;
+            box-shadow: 0 0 0 3px #1F7ACB;
+        }
+
+        input:active {
+            background: #323645;
+        }
+}
+
+.second_input, .third_input, .sign_btn {
+    input {
+        width: 46rem;
+    }
+}
+
+.third_input {
+    div {
+        display: flex;
+        justify-content: center;
+    }
+    span {
+        transform: translate(-150%);
+    }
+}
+
+.sign_btn {
+    input {
+        background-color: #1F7ACB;
+        cursor: pointer;
+    }
+}
+
