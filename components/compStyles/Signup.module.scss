@@ -56,6 +56,11 @@
         }
 }
 
+.first_input {
+    display: flex;
+    column-gap: 1.5rem;
+}
+
 .second_input, .third_input, .sign_btn {
     input {
         width: 46rem;
