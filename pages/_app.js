@@ -1,7 +1,7 @@
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from '@nextui-org/react';
 
-import '../styles/globals.scss'
+import '../styles/globals.css'
 import Page from '../components/Page.jsx'
 
 function MyApp({ Component, pageProps }) {

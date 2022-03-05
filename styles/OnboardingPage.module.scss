@@ -1,0 +1,21 @@
+.onboarding {
+    grid-template-columns: 46.3% auto;
+    
+    .onboarding__right {
+        max-width: 46rem;
+
+        .no_account {
+            p {
+                font-family: Nunito;
+                font-size: 1.8rem;
+                line-height: 2.5rem;
+                align-items: center;
+                color: #696F79;
+                
+                span {
+                    color: #05D9E8;
+                }
+            }
+        }
+    }
+}
