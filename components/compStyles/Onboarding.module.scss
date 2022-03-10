@@ -17,7 +17,7 @@
 
     .login_input, .login_input_button{
         width: 46.7rem;
-        height: 6.4rem;
+        height: 5.4rem;
         border: 1px solid #005678;
         border-radius: 6px;
         font-family: Nunito;
@@ -70,7 +70,7 @@
     .login_google {
         .login_google_btn {
             width: 46.7rem;
-            height: 6.4rem;
+            height: 5.4rem;
             background: #FFFFFF;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
             border-radius: 6px;
@@ -121,7 +121,8 @@
         color: #8692A6;
         a {
             margin-bottom: -5px;
-            margin-left: 5px;
+            margin-left: 10px;
+            font-size: 1.6rem;
         }
     }
     
@@ -132,8 +133,8 @@
         h1 {
             font-style: normal;
             font-weight: bold;
-            font-size: 32px;
-            line-height: 44px;
+            font-size: 3.2rem;
+            line-height: 4.4rem;
             text-align: center;
             color: #131313;
         } 
@@ -149,5 +150,26 @@
             }
                 
         }
+
+        .verify_image {
+            margin-top: 3.6rem;
+            object-fit: contain;
+            width: 45%;
+        }
+    }
+
+    .go_home {
+        width: 49.448rem;
+        height: 5.4rem;
+        background: #005678;
+        border-radius: 6px;
+        padding: 1.4rem 18.3rem;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 25px;
+        display: flex;
+        align-items: center;
+        text-align: center;
     }
 }

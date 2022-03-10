@@ -8,7 +8,7 @@ const Verify = () => {
   return (
     <div className={`${styles.verify_container} mt-20 mx-auto`}>
         <div className={`${styles.verify_back} text-base flex items-center mb-32`}>
-            <span><p className='text-3xl'>&#8249;</p></span>
+            <span><p className='text-4xl'>&#8249;</p></span>
             <Link href="/signup">Back</Link>
         </div>
         <div className={`${styles.verify_details}`}>
