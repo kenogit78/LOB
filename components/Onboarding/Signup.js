@@ -38,9 +38,9 @@ function Signup() {
           </div>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="email">Create password*</label>
-            <div className='flex items-center'>
+            <div className={`${styles.login_input_group__pass} items-center`}>
               <input type={showPassword ? 'password' : 'text' } placeholder='Password' className={`${styles.login_input}`}/>
-              <span onClick={handleShowPassword} className='text-xs -translate-x-20 cursor-pointer'><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
+              <span onClick={handleShowPassword} className='text-xs cursor-pointer'><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
             </div>
             <div className={`${styles.remember} flex justify-between items-center pt-4`}>
               <div className='flex justify-between items-center'>

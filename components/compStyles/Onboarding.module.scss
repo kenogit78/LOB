@@ -29,6 +29,7 @@
         display: flex;
         flex-direction: column;
         padding-bottom: 2.9rem;
+        position: relative;
 
         label {
             font-family: Nunito;
@@ -57,6 +58,17 @@
                 text-decoration-line: underline;
                 color: #05D9E8;
 
+            }
+        }
+
+        &__pass {
+            position: relative;
+
+            span {
+                position: absolute;
+                right: 30px;
+                top: 20px;
+                
             }
         }
     }
