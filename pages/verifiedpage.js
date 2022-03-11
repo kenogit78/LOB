@@ -1,6 +1,6 @@
 import React from 'react'
 import PlayerImages from '../components/Onboarding/PlayerImages'
-import Verified from '../components/Onboarding/verified';
+import Verified from '../components/Onboarding/Verified';
 import styles from '../styles/OnboardingPage.module.scss'
 
 const verifiedpage = () => {
