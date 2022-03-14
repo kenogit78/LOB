@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../compStyles/Onboarding.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
@@ -25,7 +25,23 @@ function Signup() {
     password: ''
   })
   const [showPassword, setShowPassword] = useState(true)
+  // const navigate = useNavigate()
+  const dispatch = useDispatch()
+  
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
+    state.auth
+  )
 
+  useEffect (() => {
+    if(isError) {
+      console.log(message)
+    }
+
+    if(isSuccess || user) {
+      console.log("cool")
+    }
+  }, [user, isError, isSuccess, message, dispatch])
+  
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -35,7 +51,7 @@ function Signup() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    userData = {
+    const userData = {
       name, email, phone, username, password
     }
     dispatch(signup(userData))
@@ -48,18 +64,13 @@ function Signup() {
   
   const { name, email, phone, username, password } = formData
 
-  // const navigate = useNavigate()
-  const dispatch = useDispatch()
 
-  const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
-    state.auth
-  )
 
   return (
       <div className={`${styles.login_container}`}>
         <h1>Sign up <span>.</span></h1>
 
-        <form action="" onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="name">Fullname*</label>
             <input 
