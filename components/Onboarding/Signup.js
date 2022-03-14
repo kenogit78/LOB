@@ -5,7 +5,7 @@ import Image from 'next/image';
 import google_img from '../../assets/google.png'
 
 //Redux
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 
 //Router
 import {useNavigate} from 'react-router-dom'
@@ -51,15 +51,9 @@ function Signup() {
   // const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  // const {user, isLoading, isError, isSuccess, message} = useSelector((state) => {
-  //   state.auth
-  // })
-
-  const user = useSelector((state) => {
-    state.auth.user
-  })
-
-  console.log(user)
+  const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
+    state.auth
+  )
 
   return (
       <div className={`${styles.login_container}`}>
