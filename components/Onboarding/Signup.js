@@ -8,7 +8,7 @@ import google_img from '../../assets/google.png'
 import { useSelector, useDispatch } from 'react-redux';
 
 //Router
-import {useNavigate} from 'react-router-dom'
+import { useRouter } from 'next/router';
 
 //Toast
 import {toast} from 'react-toastify'
@@ -20,12 +20,12 @@ function Signup() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    password: '',
     phone: '',
     username: '',
-    password: ''
   })
   const [showPassword, setShowPassword] = useState(true)
-  // const navigate = useNavigate()
+    const router = useRouter();
   const dispatch = useDispatch()
   
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
@@ -38,8 +38,11 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      console.log("cool")
+      router.push('/')
     }
+
+    dispatch(reset())
+
   }, [user, isError, isSuccess, message, dispatch])
   
   const onChange = (e) => {
@@ -52,7 +55,7 @@ function Signup() {
   const onSubmit = (e) => {
     e.preventDefault()
     const userData = {
-      name, email, phone, username, password
+      name, email, password, phone, username
     }
     dispatch(signup(userData))
   }
@@ -60,11 +63,9 @@ function Signup() {
   const handleShowPassword = ()=> {
     setShowPassword(!showPassword) 
   }
-  // console.log(showPassword)
   
-  const { name, email, phone, username, password } = formData
-
-
+  const { name, email, password, phone, username } = formData
+  
 
   return (
       <div className={`${styles.login_container}`}>
