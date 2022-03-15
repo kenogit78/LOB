@@ -18,10 +18,10 @@ import { signup, reset } from './../../auth/authSlice';
 
 function Signup() {
   const [formData, setFormData] = useState({
-    name: '',
+    fullname: '',
     email: '',
     password: '',
-    phone: '',
+    phone_number: '',
     username: '',
   })
   const [showPassword, setShowPassword] = useState(true)
@@ -38,7 +38,7 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      router.push('/')
+      // router.push('/')
     }
 
     dispatch(reset())
@@ -55,7 +55,7 @@ function Signup() {
   const onSubmit = (e) => {
     e.preventDefault()
     const userData = {
-      name, email, password, phone, username
+      fullname, email, password, phone_number, username
     }
     dispatch(signup(userData))
   }
@@ -64,7 +64,7 @@ function Signup() {
     setShowPassword(!showPassword) 
   }
   
-  const { name, email, password, phone, username } = formData
+  const { fullname, email, password, phone_number, username } = formData
   
 
   return (
@@ -73,13 +73,13 @@ function Signup() {
 
         <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>
-            <label htmlFor="name">Fullname*</label>
+            <label htmlFor="fullname">Fullname*</label>
             <input 
             type="text" 
-            id="name" 
+            id="fullname" 
             placeholder='Enter name' 
-            name="name" 
-            value={name}
+            name="fullname" 
+            value={fullname}
             onChange={onChange}
             className={`${styles.login_input}`}
             />
@@ -96,13 +96,13 @@ function Signup() {
             className={`${styles.login_input}`}/>
           </div>
           <div className={`${styles.login_input_group}`}>
-            <label htmlFor="email">Phone number</label>
+            <label htmlFor="phone_number">Phone number</label>
             <input 
             type="phone" 
-            id="phone" 
+            id="phone_number" 
             placeholder='phone'
-            name='phone'
-            value={phone}
+            name='phone_number'
+            value={phone_number}
             onChange={onChange}
             className={`${styles.login_input}`}/>
           </div>
