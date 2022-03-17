@@ -14,7 +14,7 @@ function Login() {
 
   const [showPassword, setShowPassword] = useState(true)
   const [formData, setFormData] = useState({
-    account: ' ',
+    account: '',
     password: ''
   })
 
