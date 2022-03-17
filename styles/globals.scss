@@ -1,0 +1,32 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 62.5%;
+
+    @media (max-width: 75em) {
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 56.25%
+      }
+
+    @media (max-width: 56.25em) {
+        font-size: 50%; //1 rem = 8px/16 = 50%
+      }
+
+    @media (max-width: 23.43em) {
+        font-size: 31.25%; //1 rem = 5, 5/16 = 31.25%
+      }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}

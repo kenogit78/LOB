@@ -1,7 +1,7 @@
 // 1. import `NextUIProvider` component
 import { NextUIProvider } from '@nextui-org/react';
 
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import Page from '../components/Page.jsx'
 
 //Import redux provider and store

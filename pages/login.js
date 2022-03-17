@@ -8,7 +8,7 @@ function login() {
   return (
     <div className={`${styles.onboarding} grid h-screen`}>
         <PlayerImages />
-        <div className={`${styles.onboarding__right} grid pl-36 items-end`}>
+        <div className={`${styles.onboarding__right} grid items-end`}>
           <Login />     
           <div className={`${styles.no_account} flex justify-end pb-12`}>
             <p>Don’t have an acount? <span><Link href="/signup"> Sign Up</Link></span></p>

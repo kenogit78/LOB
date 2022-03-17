@@ -38,7 +38,7 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      router.push('/')
+      // router.push('/')
     }
 
     dispatch(reset())
@@ -69,7 +69,7 @@ function Signup() {
 
   return (
       <div className={`${styles.login_container}`}>
-        <h1>Sign up <span>.</span></h1>
+        <h1>Sign up</h1>
 
         <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>

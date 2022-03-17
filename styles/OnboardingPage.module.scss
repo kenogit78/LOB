@@ -1,8 +1,19 @@
 .onboarding {
     grid-template-columns: 46.3% auto;
+
+    @media (max-width: 46.88em) {
+        grid-template-columns: 100%;
+    }
     
     .onboarding__right {
         max-width: 46rem;
+        padding-left: 9rem;
+        
+        @media (max-width: 46.88em) {
+            max-width: 100%;
+            margin: 0 auto;
+            padding-left: 0rem;
+        }
 
         .no_account {
             p {

@@ -5,14 +5,18 @@
 
 .login_container {
     width: 46.7rem;
-
+    @media (max-width: 46.88em) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     h1 {
         font-family: Nunito;
         font-style: normal;
         font-weight: bold;
-        font-size: 32px;
+        font-size: 3.2rem;
         line-height: 44px;
-        margin-bottom: 3.9rem;
+        margin-bottom: 3rem;
     }
 
     .login_input, .login_input_button{
@@ -111,16 +115,16 @@
             position: absolute;
             left: 1;
             top: 25px;
-            min-width: 200px;
+            min-width: 20rem;
             border: 1px solid #F5F5F5;
         }
 
         &::before {
             content: "";
             position: absolute;
-            left: 265px;
+            left: 26.5rem;
             top: 25px;
-            min-width: 200px;
+            min-width: 20rem;
             border: 1px solid #F5F5F5;
         }
 

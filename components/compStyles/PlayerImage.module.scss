@@ -1,16 +1,15 @@
 .onboarding__left {
-    background-image: url(../../assets/fpl-players.png);
+    background-image: url(../../assets/Trent1.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 
-
-    &::after {
-
+    @media (max-width: 46.88em) {
+        display: none;
     }
     
         &__p {
@@ -20,6 +19,6 @@
             font-size: 3rem;
             width: 50.524rem;
             color: #FFFFFF;
-            padding-bottom: 15rem;
+            padding-bottom: 6rem;
         }
     }
