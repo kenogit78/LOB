@@ -38,7 +38,7 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      // router.push('/')
+      router.push('/verifiedpage')
     }
 
     dispatch(reset())

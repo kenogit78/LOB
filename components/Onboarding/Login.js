@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../auth/authSlice';
 
 import { logout } from '../../auth/authSlice';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
 function Login() {
 
@@ -18,6 +18,7 @@ function Login() {
     password: ''
   })
 
+  const router = useRouter();
   const dispatch = useDispatch()
   
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
@@ -30,7 +31,9 @@ function Login() {
     }
 
     if(isSuccess || user) {
+      router.push('/verifiedpage')
     }
+
   }, [user, isError, isSuccess, message, dispatch])
   
 
