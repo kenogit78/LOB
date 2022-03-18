@@ -16,8 +16,10 @@ import {toast} from 'react-toastify'
 
 //Auth
 import { signup, reset } from './../../auth/authSlice';
+import FormInput from './FormInput';
 
 function Signup() {
+  //Form data state
   const [formData, setFormData] = useState({
     fullname: '',
     email: '',
@@ -25,12 +27,20 @@ function Signup() {
     phone_number: '',
     username: '',
   })
-  const [showPassword, setShowPassword] = useState(true)
-  // Focused state
-  const [focused, setFocused] = useState(false)
-    const router = useRouter();
+
+  //Checked state
+  const [checked, setChecked] = useState(false)
+
+  //Show password state
+  const [showPassword, setShowPassword] = useState("text")
+  
+  //Next Routes Initialization
+  const router = useRouter();
+
+  // Dispatch initilization
   const dispatch = useDispatch()
   
+  // Selector Initializatio to get states from redux
   const {user, isLoading, isError, isSuccess, message} = useSelector((state) =>
     state.auth
   )
@@ -67,42 +77,64 @@ function Signup() {
     setShowPassword(!showPassword) 
   }
   
-  const { fullname, email, password, phone_number, username } = formData
   
-  //Error message
-const errorMessage = [
+const { fullname, email, password, phone_number, username, agree } = formData
+
+const onCheckToggle = (e) => {
+  setChecked(!checked)
+}
+
+console.log(checked)
+
+const inputs = [
   {
-    id: 1,
-    fullname: "should not contain any special character",
+    type: "text", 
+    id: 1, 
+    placeholder: "Enter name",
+    label: "Full name",
+    name: "fullname",
     required: true,
-    pattern: "^[A-Za-z0-9]$"
   },
   {
-    id: 2,
-    email: "should be a valid email",
+    type: "email", 
+    id: 2, 
+    placeholder: "Enter Email",
+    label: "Email",
+    name: "email",
+    errorMessage: "Should be a valid email",
     required: true,
   },
   {
     id: 3,
-    phone: "should contain 11 numbers",
+    type: "phone", 
+    placeholder: 'phone',
+    label: "Phone Number",
+    name: 'phone_number',
+    errorMessage: "Should be a valid phone number",
     required: true,
+    pattern: `/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/`,
   },
   {
     id: 4,
-    username: "should not be more than 8 characters",
+    type: "text", 
+    placeholder: 'Username',
+    label: "Username",
+    name: 'username',
+    errorMessage: "Should be 3-16 characters and without special characters",
+    required: true,
+    pattern: "^[A-Za-z0-9]{3,16}$"
   },
   {
     id: 5,
-    password: "should contain uppercase, number",
-  },
-    
+    // type: showPassword ? 'password' : 'text', 
+    placeholder: 'Password',
+    label: "Password",
+    name: 'password',
+    errorMessage: "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character",
+    required: true,
+    pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+  },   
 ]
-//This function shows error if a user moves to another field if he has not completed a field
-
-const handleFocus = (e) => {
-  setFocused(true)
-}
-
 
   return (
       <div className={`${styles.login_container}`}>
@@ -110,6 +142,22 @@ const handleFocus = (e) => {
 
         <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>
+            {inputs.map((input) => (
+              <FormInput 
+              key={input.id} 
+              {...input} 
+              value={formData[input.name]} 
+              onChange={onChange}
+              />
+              ))}
+              <div className={`${styles.remember} flex justify-between items-center pt-4`}>
+                <div className='flex justify-between items-center'>
+                  <input type="checkbox" name="agree" id="agree" value={agree} onChange={onCheckToggle} required/>
+                  <span className='pl-4'>I agree to terms & conditions</span>
+                </div>
+              </div>
+          </div>
+          {/* <div className={`${styles.login_input_group}`}>
             <label htmlFor="fullname">Fullname*</label>
             <input 
             type="text" 
@@ -203,13 +251,7 @@ const handleFocus = (e) => {
               ))}
               <span onClick={handleShowPassword} className={`${styles.show} text-xs cursor-pointer`}><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
             </div>
-            <div className={`${styles.remember} flex justify-between items-center pt-4`}>
-              <div className='flex justify-between items-center'>
-                <input type="checkbox" name="" id=""/>
-                <span className='pl-4'>I agree to terms & conditions</span>
-              </div>
-            </div>
-          </div>
+              </div> */}
           <div className={styles.button_container}>
             <input type="submit" value="Register Account" className={`${styles.login_input_button}`}/>
             {isLoading ? <Loader/> : null}
@@ -217,11 +259,11 @@ const handleFocus = (e) => {
           <div className={`${styles.divider} py-6`}>
             <p>or</p>
           </div>
+          
+        </form>
           <div className={`${styles.login_google}`}>
             <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
           </div>
-          
-        </form>
 
       </div>
   )

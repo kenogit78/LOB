@@ -101,10 +101,10 @@ function Login() {
           <div className={`${styles.divider} py-6`}>
             <p>or</p>
           </div>
-          <div className={`${styles.login_google}`}>
-            <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
-          </div>
         </form>
+        <div className={`${styles.login_google}`}>
+          <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
+        </div>
       </div>
   )
 }

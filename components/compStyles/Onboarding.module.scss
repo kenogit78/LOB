@@ -4,8 +4,12 @@
 }
 
 .login_container {
-
+    
     width: 46.7rem;
+    @media (max-width: 30.25em) {
+        width: 40.7rem;
+        margin: auto;
+    }
 
     @media (max-width: 46.88em) {
         display: flex;
@@ -27,7 +31,11 @@
         border: 1px solid #005678;
         border-radius: 6px;
         font-family: Nunito;
-
+        
+        @media (max-width: 30.25em) {
+            width: 40.7rem;
+            margin: auto;
+        }
     }
 
 
@@ -39,6 +47,10 @@
 
         :invalid[focused="true"] ~ .errormessage {
             display: block;
+        }
+
+        :invalid[focused="true"] {
+            border: 1px solid red;
         }
         
         label {
@@ -74,13 +86,16 @@
         &__pass {
             position: relative;
             
-            .show {
-                position: absolute;
-                right: 30px;
-                top: 20px;
-                
-            }
             
+        }
+        .show {
+            position: absolute;
+            right: 30px;
+            top: 45%;
+            
+            @media (max-width: 23.43em) {
+                top: 55%;
+            }
         }
 
         .errormessage {
@@ -115,20 +130,24 @@
             line-height: 2.2rem;
             text-align: center;
             color: #131313;
+
+            @media (max-width: 30.25em) {
+                width: 40.7rem;
+            }
         }
     }
-
+    
     .divider {
         color: #BABABA;
         position: relative;
-
+        
         p { 
             font-family: Nunito;
             font-size: 12px;
             align-items: center;
             text-align: center;
         }
-
+        
         &::after {
             content: "";
             position: absolute;
@@ -136,8 +155,13 @@
             top: 25px;
             min-width: 20rem;
             border: 1px solid #F5F5F5;
+            
+            @media (max-width: 30.25em) {
+                min-width: 14rem;
+                top: 20px;
+            }
         }
-
+        
         &::before {
             content: "";
             position: absolute;
@@ -145,6 +169,11 @@
             top: 25px;
             min-width: 20rem;
             border: 1px solid #F5F5F5;
+
+            @media (max-width: 30.25em) {
+                min-width: 14rem;
+                top: 20px;
+            }
         }
 
     }
