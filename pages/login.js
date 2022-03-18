@@ -8,11 +8,11 @@ function login() {
   return (
     <div className={`${styles.onboarding} grid h-screen`}>
         <PlayerImages />
-        <div className={`${styles.onboarding__right} grid items-end`}>
+        <div className={`${styles.onboarding__right} grid`}>
           <Login />     
-          <div className={`${styles.no_account} flex justify-end pb-12`}>
+          {/* <div className={`${styles.no_account} flex justify-end pb-12`}>
             <p>Don’t have an acount? <span><Link href="/signup"> Sign Up</Link></span></p>
-        </div>
+          </div> */}
         </div>
     </div>
   )

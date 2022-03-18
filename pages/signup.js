@@ -8,7 +8,7 @@ function signup() {
   return (
     <div className={`${styles.onboarding} grid h-screen`}>
         <PlayerImages />
-        <div className={`${styles.onboarding__right} grid pt-16 pb-10 pl-36 items-center`}>
+        <div className={`${styles.onboarding__right_signup, styles.onboarding__right} grid pt-16 pb-10 pl-36`}>
           <Signup />     
         </div>
     </div>

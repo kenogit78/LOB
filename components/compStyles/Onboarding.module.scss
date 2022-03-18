@@ -4,7 +4,9 @@
 }
 
 .login_container {
+
     width: 46.7rem;
+
     @media (max-width: 46.88em) {
         display: flex;
         flex-direction: column;
@@ -149,7 +151,11 @@
 }
 
 .verify_container {
-    // margin: 0 auto;
+
+    @media (max-width: 30.43em) {
+        padding: 0 3rem;
+      }
+      
     .verify_back {
         color: #8692A6;
         a {
@@ -177,8 +183,8 @@
             p {
                 font-family: "Nunito";
 
-                font-size: 24px;
-                line-height: 33px;                                
+                font-size: 2.4rem;
+                line-height: 3.3rem;                                
                 color: #252525;
             }
                 
@@ -187,7 +193,7 @@
         .verify_image {
             margin-top: 3.6rem;
             object-fit: contain;
-            width: 45%;
+            width: 50%;
         }
     }
 
