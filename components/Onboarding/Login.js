@@ -94,7 +94,7 @@ function Login() {
               <Link href="#">Forgot password</Link>
             </div>
           </div>
-          <div>
+          <div className={styles.button_container}>
             <input type="submit" value="Sign in" className={`${styles.login_input_button}`}/>
             {isLoading ? <Loader /> : null}
           </div>
