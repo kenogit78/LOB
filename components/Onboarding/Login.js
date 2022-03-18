@@ -61,7 +61,10 @@ function Login() {
 
   return (
       <div className={`${styles.login_container}`}>
-        <h1>Sign in</h1>
+        <div className={styles.heading_login}>
+          <h1> Sign In</h1>
+          <Link href="/signup">Sign up</Link>
+        </div>
         <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="email">Username or email address</label>

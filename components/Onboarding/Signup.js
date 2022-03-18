@@ -138,7 +138,10 @@ const inputs = [
 
   return (
       <div className={`${styles.login_container}`}>
-        <h1>Sign up</h1>
+        <div className={styles.heading}>
+          <h1>Sign up</h1>
+          <Link href="/login">Sign In</Link>
+        </div>
 
         <form onSubmit={onSubmit}>
           <div className={`${styles.login_input_group}`}>
@@ -157,101 +160,6 @@ const inputs = [
                 </div>
               </div>
           </div>
-          {/* <div className={`${styles.login_input_group}`}>
-            <label htmlFor="fullname">Fullname*</label>
-            <input 
-            type="text" 
-            id="fullname" 
-            placeholder='Enter name' 
-            name="fullname" 
-            value={fullname}
-            onChange={onChange}
-            className={`${styles.login_input}`} 
-            // onBlur={handleFocus} 
-            // focused={focused.toString()}  
-            required        
-            />
-              {errorMessage.map((error) => (
-                <span className={`${styles.errormessage}`} key={error.id}>{error.fullname}</span>
-              ))}
-          </div>
-          <div className={`${styles.login_input_group}`}>
-            <label htmlFor="email">Email address*</label>
-            <input 
-            type="email" 
-            id="email"
-            placeholder='Email' 
-            name='email'
-            value={email}
-            onChange={onChange}
-            className={`${styles.login_input}`}
-            // onBlur={handleFocus}
-            // focused={focused.toString()}
-            required          
-            />
-              {errorMessage.map((error) => (
-                <span className={`${styles.errormessage}`} key={error.id}>{error.email}</span>
-              ))}          
-          </div>
-          <div className={`${styles.login_input_group}`}>
-            <label htmlFor="phone_number">Phone number</label>
-            <input 
-            type="phone" 
-            id="phone_number" 
-            placeholder='phone'
-            name='phone_number'
-            value={phone_number}
-            onChange={onChange}
-            className={`${styles.login_input}`}
-            // onBlur={handleFocus}
-            // focused={focused.toString()} 
-            required         
-            />
-            {errorMessage.map((error) => (
-                <span className={`${styles.errormessage}`} key={error.id}>{error.phone}</span>
-              ))}
-          </div>
-          <div className={`${styles.login_input_group}`}>
-            <label htmlFor="username">Username*</label>
-            <input 
-            type="text" 
-            id="username" 
-            placeholder='Username'
-            name='username'
-            value={username}
-            onChange={onChange} 
-            className={`${styles.login_input}`}
-            pattern='/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g'
-            // onBlur={handleFocus}
-            // focused={focused.toString()}
-            required          
-            />
-            {errorMessage.map((error) => (
-              <span className={`${styles.errormessage}`} key={error.id}>{error.username}</span>
-              ))}
-          </div>
-          <div className={`${styles.login_input_group}`}>
-            <label htmlFor="email">Create password*</label>
-            <div className={`${styles.login_input_group__pass} items-center`}>
-              <input 
-              type={showPassword ? 'password' : 'text' } 
-              id='password'
-              name='password'
-              value={password}
-              onChange={onChange}
-              placeholder='Password' 
-              className={`${styles.login_input}`}
-              // pattern='^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$'
-              onBlur={handleFocus}
-              focused={focused.toString()}          
-              required          
-              />
-              {errorMessage.map((error) => (
-                <span className={`${styles.errormessage}`} key={error.id}>{error.password}</span>
-              ))}
-              <span onClick={handleShowPassword} className={`${styles.show} text-xs cursor-pointer`}><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
-            </div>
-              </div> */}
           <div className={styles.button_container}>
             <input type="submit" value="Register Account" className={`${styles.login_input_button}`}/>
             {isLoading ? <Loader/> : null}
