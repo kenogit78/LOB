@@ -35,6 +35,10 @@
         padding-bottom: 2.9rem;
         position: relative;
 
+        :invalid[focused="true"] ~ .errormessage {
+            display: block;
+        }
+        
         label {
             font-family: Nunito;
             font-style: normal;
@@ -67,14 +71,26 @@
 
         &__pass {
             position: relative;
-
-            span {
+            
+            .show {
                 position: absolute;
                 right: 30px;
                 top: 20px;
                 
             }
+            
         }
+
+        .errormessage {
+            color: red;
+            font-size: 1.1rem;
+            padding-top: .08rem;
+            display: none;
+        }
+    }
+
+    .button_container {
+        position: relative;
     }
 
     .login_input_button {

@@ -9,6 +9,7 @@ import { login } from '../../auth/authSlice';
 
 import { logout } from '../../auth/authSlice';
 import { useRouter } from 'next/router';
+import Loader from '../Loader';
 
 function Login() {
 
@@ -31,7 +32,7 @@ function Login() {
     }
 
     if(isSuccess || user) {
-      router.push('/verifiedpage')
+      // router.push('/verifiedpage')
     }
 
   }, [user, isError, isSuccess, message, dispatch])
@@ -95,6 +96,7 @@ function Login() {
           </div>
           <div>
             <input type="submit" value="Sign in" className={`${styles.login_input_button}`}/>
+            {isLoading ? <Loader /> : null}
           </div>
           <div className={`${styles.divider} py-6`}>
             <p>or</p>

@@ -3,6 +3,7 @@ import styles from '../compStyles/Onboarding.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
 import google_img from '../../assets/google.png'
+import Loader from './../Loader';
 
 //Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -25,6 +26,8 @@ function Signup() {
     username: '',
   })
   const [showPassword, setShowPassword] = useState(true)
+  // Focused state
+  const [focused, setFocused] = useState(false)
     const router = useRouter();
   const dispatch = useDispatch()
   
@@ -38,7 +41,7 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      router.push('/verifiedpage')
+      // router.push('/verifiedpage')
     }
 
     dispatch(reset())
@@ -66,6 +69,40 @@ function Signup() {
   
   const { fullname, email, password, phone_number, username } = formData
   
+  //Error message
+const errorMessage = [
+  {
+    id: 1,
+    fullname: "should not contain any special character",
+    required: true,
+    pattern: "^[A-Za-z0-9]$"
+  },
+  {
+    id: 2,
+    email: "should be a valid email",
+    required: true,
+  },
+  {
+    id: 3,
+    phone: "should contain 11 numbers",
+    required: true,
+  },
+  {
+    id: 4,
+    username: "should not be more than 8 characters",
+  },
+  {
+    id: 5,
+    password: "should contain uppercase, number",
+  },
+    
+]
+//This function shows error if a user moves to another field if he has not completed a field
+
+const handleFocus = (e) => {
+  setFocused(true)
+}
+
 
   return (
       <div className={`${styles.login_container}`}>
@@ -81,8 +118,14 @@ function Signup() {
             name="fullname" 
             value={fullname}
             onChange={onChange}
-            className={`${styles.login_input}`}
+            className={`${styles.login_input}`} 
+            // onBlur={handleFocus} 
+            // focused={focused.toString()}  
+            required        
             />
+              {errorMessage.map((error) => (
+                <span className={`${styles.errormessage}`} key={error.id}>{error.fullname}</span>
+              ))}
           </div>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="email">Email address*</label>
@@ -93,7 +136,14 @@ function Signup() {
             name='email'
             value={email}
             onChange={onChange}
-            className={`${styles.login_input}`}/>
+            className={`${styles.login_input}`}
+            // onBlur={handleFocus}
+            // focused={focused.toString()}
+            required          
+            />
+              {errorMessage.map((error) => (
+                <span className={`${styles.errormessage}`} key={error.id}>{error.email}</span>
+              ))}          
           </div>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="phone_number">Phone number</label>
@@ -104,7 +154,14 @@ function Signup() {
             name='phone_number'
             value={phone_number}
             onChange={onChange}
-            className={`${styles.login_input}`}/>
+            className={`${styles.login_input}`}
+            // onBlur={handleFocus}
+            // focused={focused.toString()} 
+            required         
+            />
+            {errorMessage.map((error) => (
+                <span className={`${styles.errormessage}`} key={error.id}>{error.phone}</span>
+              ))}
           </div>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="username">Username*</label>
@@ -116,7 +173,14 @@ function Signup() {
             value={username}
             onChange={onChange} 
             className={`${styles.login_input}`}
+            pattern='/^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/g'
+            // onBlur={handleFocus}
+            // focused={focused.toString()}
+            required          
             />
+            {errorMessage.map((error) => (
+              <span className={`${styles.errormessage}`} key={error.id}>{error.username}</span>
+              ))}
           </div>
           <div className={`${styles.login_input_group}`}>
             <label htmlFor="email">Create password*</label>
@@ -129,8 +193,15 @@ function Signup() {
               onChange={onChange}
               placeholder='Password' 
               className={`${styles.login_input}`}
+              // pattern='^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&? "]).*$'
+              onBlur={handleFocus}
+              focused={focused.toString()}          
+              required          
               />
-              <span onClick={handleShowPassword} className='text-xs cursor-pointer'><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
+              {errorMessage.map((error) => (
+                <span className={`${styles.errormessage}`} key={error.id}>{error.password}</span>
+              ))}
+              <span onClick={handleShowPassword} className={`${styles.show} text-xs cursor-pointer`}><p>{showPassword ? <p>Show</p> : <p>hide</p>}</p></span>
             </div>
             <div className={`${styles.remember} flex justify-between items-center pt-4`}>
               <div className='flex justify-between items-center'>
@@ -139,8 +210,9 @@ function Signup() {
               </div>
             </div>
           </div>
-          <div>
+          <div className={styles.button_container}>
             <input type="submit" value="Register Account" className={`${styles.login_input_button}`}/>
+            {isLoading ? <Loader/> : null}
           </div>
           <div className={`${styles.divider} py-6`}>
             <p>or</p>
