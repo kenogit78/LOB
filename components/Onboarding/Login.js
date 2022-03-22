@@ -32,7 +32,7 @@ function Login() {
     }
 
     if(isSuccess || user) {
-      // router.push('/verifiedpage')
+      router.push('/verifiedpage')
     }
 
   }, [user, isError, isSuccess, message, dispatch])

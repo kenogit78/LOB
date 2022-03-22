@@ -12,7 +12,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 
 //Toast
-import {toast} from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Auth
 import { signup, reset } from './../../auth/authSlice';
@@ -47,7 +48,16 @@ function Signup() {
 
   useEffect (() => {
     if(isError) {
-      console.log(message)
+      toast.error(message, {
+            className: `${styles.error_toast}`,
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
     }
 
     if(isSuccess || user) {
@@ -169,6 +179,7 @@ const inputs = [
           </div>
           
         </form>
+        <ToastContainer />
           <div className={`${styles.login_google}`}>
             <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
           </div>

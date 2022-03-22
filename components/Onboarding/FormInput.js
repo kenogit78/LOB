@@ -27,7 +27,7 @@ const FormInput = (props) => {
   return (
     <div>
         <div className={`${styles.login_input_group}`}>
-            <label htmlFor="fullname">{label}*</label>
+            <label htmlFor="fullname">{label} <span className='text-red-600'>*</span></label>
             <input 
             {...inputProps}
             className={`${styles.login_input}`} 
