@@ -19,17 +19,18 @@ export const signup = createAsyncThunk('auth/signup', async (user, thunkApi) => 
     try {
         return await authService.signup(user)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.message) || error.message || error.toString()
+        const message = (error.response.data.message) || error.message || error.toString()
         return thunkApi.rejectWithValue(message)
     }
+
 })
 
-// Signup user
+// SignIn user
 export const login = createAsyncThunk('auth/login', async (user, thunkApi) => {
     try {
         return await authService.login(user)
     } catch (error) {
-        const message = (error.response && error.response.data && error.response.message) || error.message || error.toString()
+        const message = (error.response.data.message) || error.message || error.toString()
         return thunkApi.rejectWithValue(message)
     }
 })

@@ -166,7 +166,7 @@ const inputs = [
               <div className={`${styles.remember} flex justify-between items-center pt-4`}>
                 <div className='flex justify-between items-center'>
                   <input type="checkbox" name="agree" id="agree" value={agree} onChange={onCheckToggle} required/>
-                  <span className='pl-4'>I agree to terms & conditions</span>
+                  <span className='pl-1'>I agree to terms & conditions</span>
                 </div>
               </div>
           </div>

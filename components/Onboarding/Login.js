@@ -5,11 +5,15 @@ import styles from '../compStyles/Onboarding.module.scss'
 import google_img from '../../assets/google.png'
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../auth/authSlice';
+import { login, reset } from '../../auth/authSlice';
 
 import { logout } from '../../auth/authSlice';
 import { useRouter } from 'next/router';
 import Loader from '../Loader';
+
+//Toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login() {
 
@@ -27,13 +31,24 @@ function Login() {
   )
 
   useEffect (() => {
-    if(isError) {
-      console.log(message)
-    }
-
-    if(isSuccess || user) {
-      router.push('/verifiedpage')
-    }
+      if(isError) {
+      toast.error(message, {
+            className: `${styles.error_toast}`,
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+          }
+          console.log(message)
+      if(isSuccess || user) {
+      // router.push('/verifiedpage')    
+      
+      }
+    dispatch(reset())
 
   }, [user, isError, isSuccess, message, dispatch])
   
@@ -108,6 +123,7 @@ function Login() {
         <div className={`${styles.login_google}`}>
           <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
         </div>
+        <ToastContainer />
       </div>
   )
 }

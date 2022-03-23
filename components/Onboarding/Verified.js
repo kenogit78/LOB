@@ -21,7 +21,8 @@ const Verified = () => {
               <p className="mb-12">You are now a member. You can now begin to enjoy the seamless chat, bant, and interaction with other players </p>
             </div>
         </div>
-        <button className={`${styles.go_home}`}>Go to Home</button>
+        {/* <button className={`${styles.go_home}`}><Link href='/homepage'>Go to Home</Link></button> */}
+        <Link href='/homepage'><button className={`${styles.go_home}`}>Go to Home</button></Link>
     </div>
   )
 }

@@ -1,0 +1,52 @@
+.header {
+    background-color: #05D9E8;
+    height: 10.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    .logo {
+        font-weight: 600;
+        font-size: 4rem;
+        color: #01012B;
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+    }
+    
+    .user_info {
+        display: flex;
+        align-items: center;
+        padding-right: 1.6rem;
+
+        &__username {
+            padding-right: 1.6rem;
+            p {
+                font-size: 3rem;
+                color: #01012B;
+            }
+        }
+    }
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 28.6% 41% 30%;
+    height: 86vh;
+    
+    &_sidebar {
+    }
+    
+    &_home {
+        background-color: rgba(187, 187, 187, 0.52);
+    }
+
+    &_sidebar {
+
+    }
+}
