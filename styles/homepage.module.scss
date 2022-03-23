@@ -1,0 +1,17 @@
+
+.main {
+    display: grid;
+    grid-template-columns: 28.6% 41% 30%;
+    height: 86vh;
+    
+    &_sidebar {
+    }
+    
+    &_home {
+        background-color: rgba(187, 187, 187, 0.52);
+    }
+
+    &_sidebar {
+
+    }
+}

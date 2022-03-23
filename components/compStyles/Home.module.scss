@@ -34,19 +34,18 @@
     }
 }
 
-.main {
-    display: grid;
-    grid-template-columns: 28.6% 41% 30%;
-    height: 86vh;
-    
-    &_sidebar {
-    }
-    
-    &_home {
-        background-color: rgba(187, 187, 187, 0.52);
-    }
+.sidebar {
+    padding: 2.2rem 6.9rem 1.9rem;
 
-    &_sidebar {
-
+    nav > ul > li {
+        font-family: Nunito;
+        font-size: 3rem;
+        color:#BBBBBB;
+        display: flex;
+        align-items: center;
+        span {
+            margin-bottom: -.5rem;
+            padding-left: 1.6rem;
+        }
     }
 }
