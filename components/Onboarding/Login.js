@@ -43,9 +43,8 @@ function Login() {
             progress: undefined,
             });
           }
-          console.log(message)
       if(isSuccess || user) {
-      // router.push('/verifiedpage')    
+      router.push('/homepage')    
       
       }
     dispatch(reset())
