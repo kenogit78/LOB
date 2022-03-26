@@ -61,7 +61,7 @@ function Signup() {
     }
 
     if(isSuccess || user) {
-      // router.push('/verifiedpage')
+      router.push('/verifiedpage')
     }
 
     dispatch(reset())

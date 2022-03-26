@@ -1,10 +1,58 @@
 import React from 'react'
 import Header from './Header'
 import styles from '../compStyles/Home.module.scss'
+import Image from 'next/image';
+
+import image from '../../assets/image.svg'
+import video from '../../assets/video.svg'
+import mic from '../../assets/mic.svg'
+import avatar from '../../assets/avatar.png'
+import post_avatar from '../../assets/post_avatar.png'
+import post_img_1 from '../../assets/post_img_1.png'
+import post_img_2 from '../../assets/post_img_2.png'
+
 const Home = () => {
   return (
-    <div>
-      
+    <div className={styles.home}>
+      <h2>Home</h2>
+      <div className={styles.home_post}>
+        <form>
+          <div className={styles.home_post__input}>
+            <div className={styles.home_post__avatar}>
+              <Image src={avatar} alt="avatar"/>
+            </div>
+            <textarea rows={1}
+          cols={40} type="text" placeholder='What’s on you mind?' />
+          </div>
+          <div className={styles.home_post__btn_icon}>
+            <div className={styles.icons}>
+              <Image src={image} alt="image"/>
+              <Image src={video} alt="video"/>
+              <Image src={mic} alt="mic"/>
+            </div>
+            <button>Send</button>
+          </div>
+        </form>
+      </div>
+      <div className={styles.home_feeds}>
+        <div className={styles.home_feeds__user_img}>
+          <Image src={post_avatar} />
+        </div>
+        <div className={styles.home_feeds__post}>
+          <div className={styles.home_feeds__post_username}>
+            
+          </div>
+          <div className={styles.home_feeds__post_text}>
+            
+          </div>          
+          <div className={styles.home_feeds__post_img}>
+            
+          </div>          
+          <div className={styles.home_feeds__post_icons}>
+            
+          </div>          
+        </div>
+      </div>
     </div>
   )
 }

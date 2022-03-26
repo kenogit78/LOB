@@ -8,7 +8,7 @@ const Explore = () => {
       <h1>Explore</h1>
       <div className={styles.explore_search}>
             <span className={styles.explore_search__icon}><Image src={search} alt='search'/></span>
-            <input type="search" className='' placeholder='Search'/>
+            <input type="search" className={styles.search} placeholder='Search'/>
       </div>
       <div className={styles.explore_details}>
         <div className={styles.explore_details__items}>

@@ -33,7 +33,9 @@ const Sidebar = () => {
                 <li><a><Image src={Messages} alt='Messages'/><span>Messages</span></a></li>
                 <li><a><Image src={Settings} alt='Settings'/><span>Settings</span></a></li>
             </ul>
-            <button onClick={onLogout} className={styles.sidebar_btn}>Make a post</button>
+            <div className={styles.sidebar_btn_container}>
+              <button onClick={onLogout} className={styles.sidebar_btn}>Make a post</button>
+            </div>
         </nav>
         <div className="toggle">
           Toggle
