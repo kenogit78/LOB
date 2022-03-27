@@ -6,6 +6,9 @@ import Image from 'next/image';
 import image from '../../assets/image.svg'
 import video from '../../assets/video.svg'
 import mic from '../../assets/mic.svg'
+import like from '../../assets/like.svg'
+import comment from '../../assets/comment.svg'
+import share from '../../assets/Share.svg'
 import avatar from '../../assets/avatar.png'
 import post_avatar from '../../assets/post_avatar.png'
 import post_img_1 from '../../assets/post_img_1.png'
@@ -40,16 +43,41 @@ const Home = () => {
         </div>
         <div className={styles.home_feeds__post}>
           <div className={styles.home_feeds__post_username}>
-            
+            <h4>PaulKanayo</h4>
           </div>
           <div className={styles.home_feeds__post_text}>
-            
+            <p>Look at these foolish Man U defenders fgs</p>
           </div>          
           <div className={styles.home_feeds__post_img}>
-            
+              <Image src={post_img_1} alt="post image"/>
+              <Image src={post_img_2} alt="post image"/>
           </div>          
           <div className={styles.home_feeds__post_icons}>
-            
+              <Image src={like} alt="like"/>
+              <Image src={comment} alt="comment"/>
+              <Image src={share} alt="share"/>
+          </div>          
+        </div>
+      </div>
+      <div className={styles.home_feeds}>
+        <div className={styles.home_feeds__user_img}>
+          <Image src={post_avatar} />
+        </div>
+        <div className={styles.home_feeds__post}>
+          <div className={styles.home_feeds__post_username}>
+            <h4>PaulKanayo</h4>
+          </div>
+          <div className={styles.home_feeds__post_text}>
+            <p>Look at these foolish Man U defenders fgs</p>
+          </div>          
+          <div className={styles.home_feeds__post_img}>
+              {/* <Image src={post_img_1} alt="post image"/>
+              <Image src={post_img_2} alt="post image"/> */}
+          </div>          
+          <div className={styles.home_feeds__post_icons}>
+              <Image src={like} alt="like"/>
+              <Image src={comment} alt="comment"/>
+              <Image src={share} alt="share"/>
           </div>          
         </div>
       </div>

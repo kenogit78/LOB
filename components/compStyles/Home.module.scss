@@ -191,4 +191,45 @@
             }
         }
     }
+
+    &_feeds {
+        background: #fff;
+        margin: .8rem 0;
+        border-radius: 10px;
+        padding: 2.2rem;
+        display: flex;
+        column-gap: 1.6rem;
+
+        &__post {
+            color: #01012B;
+            
+            &_username {
+                
+                h4 {
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+                
+            }
+            
+            &_text{
+                p {
+                    font-size: 2rem;
+                    font-weight: 400;
+                }    
+            }
+
+            &_img {
+                display: flex;
+                column-gap: .8rem;
+                padding-top: .8rem;
+            }
+
+            &_icons {
+                display: flex;
+                justify-content: space-between;
+                padding-top: .8rem;
+            }
+        }
+    }
 }
