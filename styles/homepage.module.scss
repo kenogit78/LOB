@@ -4,13 +4,21 @@
     // grid-template-columns: 28.6% 41% 30%;
     display: flex;
     height: 86vh;
+
+    @media (max-width: 40.43em) {
+        flex-direction: column;
+      }
     
     &_sidebar {
         flex-basis: 28.6%;
         
         @media (max-width: 78.18em) {
-            flex-basis: 15rem;
+            flex-basis: 10%;
             }
+
+        @media (max-width: 40.43em) {
+            order: 1;
+      }
     }
     
     &_home {

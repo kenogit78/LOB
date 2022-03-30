@@ -60,7 +60,7 @@ const Sidebar = () => {
               <button onClick={onLogout} className={styles.sidebar_btn}>Make a post</button>
             </div>
         </nav>
-        <div className="toggle">
+        <div className={styles.toggle}>
           Toggle
         </div>
     </div>

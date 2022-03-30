@@ -23,7 +23,7 @@
         display: flex;
         align-items: center;
         padding-right: 1.6rem;
-
+        
         &__username {
             padding-right: 1.6rem;
             p {
@@ -41,10 +41,22 @@
     // align-items: center;
     padding: 2.2rem 0 1.9rem;
     height: 100%;
+
     
     
     nav {
         margin: 0 auto;
+        @media (max-width: 40.43em) {
+            margin: 0;
+
+          }
+        
+        ul {
+            @media (max-width: 40.43em) {
+                display: flex;
+                justify-content: space-around;
+              }
+        }
     }
     
     a {
@@ -62,7 +74,7 @@
         display: flex;
         align-items: center;
         padding: .3rem 1rem;
-
+        
         span  {
             @media (max-width: 78.18em) {
                 display: none;
@@ -73,8 +85,8 @@
             border-radius: 30px;
             transition: color 100ms ease-out;
         }
-
-
+        
+        
         &:focus {
             // color: #005678;
         }
@@ -90,7 +102,7 @@
         background: #005678;
         border-radius: 6px;
         margin: 3.2rem 0;
-
+        
         font-family: 'Nunito';
         font-weight: 700;
         font-size: 2rem;
@@ -101,6 +113,12 @@
                 display: none;
             }
         }
+
+    .toggle {
+        @media (max-width: 40.43em) {
+                display:  none;
+              }
+    }
 }
 
 .explore {
