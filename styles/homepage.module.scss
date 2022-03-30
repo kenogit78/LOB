@@ -25,6 +25,11 @@
         flex-basis: 41%;
         background-color: rgba(187, 187, 187, 0.52);
         flex-grow: 2;
+
+        @media (max-width: 40.43em) {
+            overflow: scroll;
+            height: 80vh;
+      }
     }
     
     &_explore {
