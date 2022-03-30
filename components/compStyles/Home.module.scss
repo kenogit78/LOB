@@ -42,6 +42,7 @@
     padding: 2.2rem 0 1.9rem;
     height: 100%;
     
+    
     nav {
         margin: 0 auto;
     }
@@ -62,6 +63,11 @@
         align-items: center;
         padding: .3rem 1rem;
 
+        span  {
+            @media (max-width: 78.18em) {
+                display: none;
+            }
+        }
         &:hover {
             background-color: #0056781e;
             border-radius: 30px;
@@ -90,6 +96,10 @@
         font-size: 2rem;
         text-align: center;
         color: #FFFFFF;
+
+        @media (max-width: 78.18em) {
+                display: none;
+            }
         }
 }
 

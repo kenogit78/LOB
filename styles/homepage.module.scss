@@ -1,17 +1,32 @@
 
 .main {
-    display: grid;
-    grid-template-columns: 28.6% 41% 30%;
+    // display: grid;
+    // grid-template-columns: 28.6% 41% 30%;
+    display: flex;
     height: 86vh;
     
     &_sidebar {
+        flex-basis: 28.6%;
+        
+        @media (max-width: 78.18em) {
+            flex-basis: 15rem;
+            }
     }
     
     &_home {
+        flex-basis: 41%;
         background-color: rgba(187, 187, 187, 0.52);
+        flex-grow: 2;
     }
+    
+    &_explore {
+        flex-basis: 30%;
+        flex-shrink: 2;
+        @media (max-width: 70.18em) {
+            display: none;
+            }
 
-    &_sidebar {
-
+        
+        
     }
 }

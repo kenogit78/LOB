@@ -17,7 +17,7 @@
     .fixturebox {
         background-color: #F5F5F5;
         border-radius: 10px;
-        padding: 1.4rem 8.9rem 1.4rem 2.4rem;
+        padding: 1.4rem 2rem 1.4rem 2.4rem;
         // padding: 1.4rem 2.4rem;
         display: flex;
         // justify-content: space-between;
@@ -27,11 +27,62 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 85%;
+            width: 70%;
+
+        }
+        position: relative;
+        
+        &__scorers {
+            position: relative;
+            padding-left: 2rem;
+            margin-left: 1rem;
+            
+            p {
+                font-size: 1.4rem;
+                color: #005678;
+
+            }
+
+            &::before {
+                position: absolute;
+                margin-left: -1rem;
+                content: "";
+                height: 12.5rem;
+                // left: 382px;
+                top: -.9rem;
+
+                border: .8px solid rgba(0, 86, 120, 0.16);
+
+            }
+        }
+
+        &__scores {
+            color: #005678;
+
+            h4 {
+                font-weight: 600;
+                font-size: 2.4rem;
+                text-align: center;
+            }
+
+            p {
+                background: #fff;
+                text-align: center;
+                padding: .22rem 1.3rem;
+                border-radius: 6px;
+                font-weight: 400;
+                font-size: 1.8rem;
+            }
         }
 
         &__hometeam, &__awayteam {
             text-align: center;
+            p {
+                font-weight: 600;
+                font-size: 2.4rem;
+                color: #005678;
+
+            }
         }
     }
 }
