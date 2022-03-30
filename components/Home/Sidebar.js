@@ -1,6 +1,10 @@
 import styles from '../compStyles/Home.module.scss'
 import Image from 'next/image'
 import Home from '../../assets/House.svg'
+import HomeFilled1 from '../../assets/HomeFilled1.svg'
+import TableFilled from '../../assets/RowsFilled.svg'
+import FixturesFilled from '../../assets/ArrowsLeftRightFilled.svg'
+// import ArrowsLeftRightFilled from '../../assets/ArrowsLeftRightFilled.svg'
 import Table from '../../assets/Rows.svg'
 import Fixtures from '../../assets/ArrowsLeftRight.svg'
 import Messages from '../../assets/EnvelopeSimpl.svg'
@@ -25,13 +29,32 @@ const Sidebar = () => {
     <div className={styles.sidebar}>
         <nav>
             <ul>
-                <Link href='/homepage'>             
-                <li><a><Image src={Home} alt='Home'/><span>Home</span></a></li>
-                </Link>
-                <li><a><Image src={Table} alt='Table'/><span>Table</span></a></li>
-                <li><a><Image src={Fixtures} alt='Fixtures'/><span>Fixtures</span></a></li>
-                <li><a><Image src={Messages} alt='Messages'/><span>Messages</span></a></li>
-                <li><a><Image src={Settings} alt='Settings'/><span>Settings</span></a></li>
+                <li className={router.pathname == "/homepage" ? styles.active : ""}>
+                  <Link href='/homepage'>             
+                  <a><Image src={router.pathname == "/homepage" ? HomeFilled1 : Home} alt='Home'/><span>Home</span></a>
+                  </Link>
+                </li>
+                <li className={router.pathname == "/table" ? styles.active : ""}>
+                  <Link href='/table'>
+                    
+                    <a><Image src={router.pathname == "/table" ? TableFilled : Table} alt='Table'/><span>Table</span></a>
+                  </Link>
+                </li>
+                <li className={router.pathname == "/fixtures" ? styles.active : ""}>
+                  <Link href='/fixtures'>
+                    <a><Image src={router.pathname == "/fixtures" ? FixturesFilled : Fixtures} alt='Fixtures'/><span>Fixtures</span></a>
+                  </Link>
+                </li>
+                <li className={router.pathname == "/messages" ? styles.active : ""}>
+                  <Link href='/messages'>
+                    <a><Image src={Messages} alt='Messages'/><span>Messages</span></a>
+                  </Link>
+                </li>
+                <li className={router.pathname == "/settings" ? styles.active : ""}>
+                  <Link href='/settings'>
+                    <a><Image src={Settings} alt='Settings'/><span>Settings</span></a>
+                  </Link>
+                  </li>
             </ul>
             <div className={styles.sidebar_btn_container}>
               <button onClick={onLogout} className={styles.sidebar_btn}>Make a post</button>

@@ -1,0 +1,37 @@
+.fixtures {
+    padding: 0 1rem;
+
+    h2 {
+        padding: 1.6rem 0 2.2rem;
+        font-weight: 600;
+        font-size: 3rem;
+        color: #005678;
+    }
+    &_container {
+        padding: 1.4rem 2.2rem;
+        background: #FFFFFF;
+        border-radius: 10px;
+
+    }
+
+    .fixturebox {
+        background-color: #F5F5F5;
+        border-radius: 10px;
+        padding: 1.4rem 8.9rem 1.4rem 2.4rem;
+        // padding: 1.4rem 2.4rem;
+        display: flex;
+        // justify-content: space-between;
+        margin: .8rem 0;
+
+        &__teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 85%;
+        }
+
+        &__hometeam, &__awayteam {
+            text-align: center;
+        }
+    }
+}

@@ -41,35 +41,43 @@
     // align-items: center;
     padding: 2.2rem 0 1.9rem;
     height: 100%;
-
+    
     nav {
         margin: 0 auto;
     }
-
+    
+    a {
+        font-size: 2rem;
+    }
+    
+    .active span{
+        color: #005678;
+    }
+    
     nav > ul > li > a{
         font-family: Nunito;
         font-size: 3rem;
         color:#BBBBBB;
         display: flex;
         align-items: center;
+        padding: .3rem 1rem;
 
-        & :hover {
-            color: #005678;
+        &:hover {
+            background-color: #0056781e;
+            border-radius: 30px;
+            transition: color 100ms ease-out;
         }
 
-        & :active {
-            color: #005678;
-        }
 
         &:focus {
-            color: #005678;
+            // color: #005678;
         }
         span {
             margin-bottom: -.5rem;
             padding-left: 1.6rem;
         }
     }
-
+    
     &_btn {
         width: 27.4rem;
         height: 5rem;
