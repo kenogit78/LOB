@@ -23,9 +23,20 @@
         display: flex;
         align-items: center;
         padding-right: 1.6rem;
-        
+
+        &__image {
+
+            @media (max-width: 40.43em) {
+                width: 80%;
+            }
+        }
+
         &__username {
             padding-right: 1.6rem;
+            @media (max-width: 40.43em) {
+                display: none;
+            }
+
             p {
                 font-size: 3rem;
                 color: #01012B;
@@ -41,6 +52,7 @@
     // align-items: center;
     padding: 2.2rem 0 1.9rem;
     height: 100%;
+    display: fixed;
 
     
     
