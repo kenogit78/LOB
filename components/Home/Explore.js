@@ -5,7 +5,7 @@ import Image from 'next/image';
 const Explore = () => {
   return (
     <div className={styles.explore}>
-      <h1>Explore</h1>
+      <h2>Explore</h2>
       <div className={styles.explore_search}>
             <span className={styles.explore_search__icon}><Image src={search} alt='search'/></span>
             <input type="search" className={styles.search} placeholder='Search'/>

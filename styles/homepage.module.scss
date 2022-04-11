@@ -3,7 +3,8 @@
     // display: grid;
     // grid-template-columns: 28.6% 41% 30%;
     display: flex;
-    height: 86vh;
+    height: 100%;
+    
 
     @media (max-width: 40.43em) {
         flex-direction: column;
@@ -23,7 +24,8 @@
     
     &_home {
         flex-basis: 41%;
-        background-color: rgba(187, 187, 187, 0.52);
+        // background-color: var(--main-bg-color);
+        background-color: rgb(29 29 58);
         flex-grow: 2;
 
         @media (max-width: 40.43em) {

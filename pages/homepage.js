@@ -7,7 +7,7 @@ import Sidebar from './../components/Home/Sidebar';
 
 const homepage = () => {
   return (
-    <div>
+    <div className={styles.home_container}>
         <Header />
         <div className={styles.main}>
             <div className={styles.main_sidebar}>

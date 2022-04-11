@@ -1,5 +1,5 @@
 .header {
-    background-color: #05D9E8;
+    background-color: var(--main-bg-color);
     height: 10.8rem;
     display: flex;
     justify-content: space-between;
@@ -7,11 +7,14 @@
     padding: 0 4rem;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-
+    box-shadow: 0px 1px 13px #FFFFFF26;
+    position: relative;
+    z-index: 1000000;
+ 
     .logo {
         font-weight: 600;
-        font-size: 4rem;
-        color: #01012B;
+        font-size: var(--font-header);
+        color: var(--icon-active-color);
     }
 
     .user {
@@ -76,12 +79,12 @@
     }
     
     .active span{
-        color: #005678;
+        color: var(--icon-active-color);
     }
     
     nav > ul > li > a{
         font-family: Nunito;
-        font-size: 3rem;
+        font-size: var(--font-p-text-3);
         color:#BBBBBB;
         display: flex;
         align-items: center;
@@ -111,7 +114,6 @@
     &_btn {
         width: 27.4rem;
         height: 5rem;
-        background: #005678;
         border-radius: 6px;
         margin: 3.2rem 0;
         
@@ -119,7 +121,6 @@
         font-weight: 700;
         font-size: 2rem;
         text-align: center;
-        color: #FFFFFF;
 
         @media (max-width: 78.18em) {
                 display: none;
@@ -137,10 +138,10 @@
     padding: 0 2.7rem 0 3.1rem;
     // position: relative;
 
-    h1 {
+    h2 {
         font-weight: 600;
-        font-size: 3rem;
-        color: #005678;
+        font-size: 2.4rem;
+        padding: 2rem 0 .8rem 0;
         }
 
     &_search {
@@ -152,11 +153,12 @@
             height: 5rem;
             width: 37.6rem;
             border-radius: 30px;
-            border: 1px solid #F1F1F1;
+            border: 1px solid #F5FCFF;
             padding-left: 6.1rem;
             font-weight: 500;
             font-size: 1.8rem;
             color: #BBBBBB;
+            background-color: var(--main-bg-color);
         }
 
     &__icon {
@@ -168,7 +170,8 @@
   }
 
   &_details {
-    background-color: #F1F1F1;
+    background-color: #bbbbbb34;
+;
     margin-top: 1.6rem;
     padding: 2.2rem 2.5rem;
     border-radius: 15px 15px 0 0;
@@ -182,7 +185,7 @@
         p {
             font-weight: 400;
             font-size: 1.5rem;
-            color: #01012B;
+            color: #F5FCFF;
         }
     }
   }
@@ -190,31 +193,43 @@
 }
 
 .home {
-    padding: 0 1rem;
-
-    h2 {
-        padding: 1.6rem 0 2.2rem;
-        font-weight: 600;
-        font-size: 3rem;
-        color: #005678;
+    
+    .heading {
+        background-color: rgb(9 9 48);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(11px);
+        // margin-bottom: .4rem;
+        
     }
+    h2 {
+        padding: 1.6rem 1.5rem 2.2rem;
+        font-weight: 600;
+        font-size: var(--font-p-text-3);
+    }
+    
+    &_main {
+        padding: .4rem 1rem;
+        background-color: var(--secondary-bg-color);
+    }
+
     &_post {
         padding: 2.2rem;
-        background: #FFFFFF;
+        background: var(--main-bg-color);
         border-radius: 10px;
         &__input {
             display: flex;
             word-wrap: break-word;
             padding-bottom: 4.4rem;
-
+            
             textarea {
                 font-weight: 200;
-                font-size: 2rem;
+                font-size: var(--font-p-text-1);
                 padding-left: 2.4rem;
                 color: #BBBBBB;
                 overflow: hidden;
                 resize: none;
                 width: 100%;
+                background: var(--main-bg-color);
             }
         }
         &__btn_icon {
@@ -231,18 +246,16 @@
             button {
                 width: 13.8rem;
                 height: 4rem;
-                background: #005678;
                 border-radius: 6px;
-                color: #FFFFFF;
                 font-weight: 700;
-                font-size: 1.8rem;
+                font-size: var(--font-p-text-1);
                 text-align: center;
             }
         }
     }
 
     &_feeds {
-        background: #fff;
+        background: var(--main-bg-color);
         margin: .8rem 0;
         border-radius: 10px;
         padding: 2.2rem;
@@ -255,7 +268,7 @@
             &_username {
                 
                 h4 {
-                    font-size: 2rem;
+                    font-size: var(--font-p-text-2);
                     font-weight: 600;
                 }
                 
@@ -263,7 +276,7 @@
             
             &_text{
                 p {
-                    font-size: 2rem;
+                    font-size: var(--font-p-text-2);
                     font-weight: 400;
                 }    
             }
