@@ -5,11 +5,12 @@
 :root {
   //Colors
   --main-bg-color: #01012B;
+  --header-bg-color: #01012b83;
   --secondary-bg-color: rgb(29 29 58);
   --icon-active-color: #FF2A6D;
   --btn-bg-color: #05D9E8;
   --btn-color-black: #01012B;
-
+  
   //Fonts
   --font-header: 3.2rem;
   --font-p-text-1: 1.6rem;
@@ -26,9 +27,10 @@ body {
   margin: 0;
   font-family: "Nunito", sans-serif;
   font-size: 62.5%;
+  background-color: var(--main-bg-color);
   
-
-    @media (max-width: 75em) {
+  
+  @media (max-width: 75em) {
         font-size: 56.25%;
       }
 

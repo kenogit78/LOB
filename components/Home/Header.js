@@ -3,8 +3,21 @@ import user_image from '../../assets/user_image.png'
 import Notification from '../../assets/Notification.png'
 import Image from 'next/image';
 import Modal from './Modal';
+import { useState } from 'react';
 const Header = () => {
 
+    const [fix, setFix] = useState(false)
+
+    function setFixed() {
+        if(window.scrollY >=.1) {
+            setFix(true)
+        } else {
+            setFix(false)
+        }
+    }
+
+    // window.addEventListener("scroll", setFixed)
+    
     const openModal = () => {
         console.log("open modal")
     }
