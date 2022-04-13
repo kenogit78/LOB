@@ -4,6 +4,7 @@ import Home from './../components/Home/Home';
 import styles from '../styles/homepage.module.scss'
 import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
+import BottomNav from '../components/BottomNav';
 
 const homepage = () => {
   return (
@@ -12,6 +13,9 @@ const homepage = () => {
         <div className={styles.main}>
             <div className={styles.main_sidebar}>
                 <Sidebar />
+            </div>
+            <div className={styles.main_sidebar_bottom}>
+                <BottomNav />
             </div>
             <div className={styles.main_home}>
                 <Home />

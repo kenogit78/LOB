@@ -1,7 +1,7 @@
 import styles from '../compStyles/Home.module.scss'
 import Image from 'next/image'
 import Home from '../../assets/House.svg'
-import HomeFilled1 from '../../assets/HomeFilled1.svg'
+import HomeFilled1 from '../../assets/House_fill.png'
 import TableFilled from '../../assets/RowsFilled.svg'
 import FixturesFilled from '../../assets/ArrowsLeftRightFilled.svg'
 // import ArrowsLeftRightFilled from '../../assets/ArrowsLeftRightFilled.svg'

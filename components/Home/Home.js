@@ -6,7 +6,7 @@ import Image from 'next/image';
 import image from '../../assets/image.svg'
 import video from '../../assets/video.svg'
 import mic from '../../assets/mic.svg'
-import like from '../../assets/like.svg'
+import thumbs_up from '../../assets/thumbs-up.svg'
 import comment from '../../assets/comment.svg'
 import share from '../../assets/Share.svg'
 import avatar from '../../assets/avatar.png'
@@ -33,7 +33,6 @@ const Home = () => {
             <div className={styles.home_post__btn_icon}>
               <div className={styles.icons}>
                 <Image src={image} alt="image"/>
-                <Image src={video} alt="video"/>
                 <Image src={mic} alt="mic"/>
               </div>
               <button>Send</button>
@@ -56,7 +55,7 @@ const Home = () => {
                 <Image src={post_img_2} alt="post image"/>
             </div>          
             <div className={styles.home_feeds__post_icons}>
-                <Image src={like} alt="like"/>
+                <Image src={thumbs_up} alt="like"/>
                 <Image src={comment} alt="comment"/>
                 <Image src={share} alt="share"/>
             </div>          
@@ -78,7 +77,7 @@ const Home = () => {
                 <Image src={post_img_2} alt="post image"/> */}
             </div>          
             <div className={styles.home_feeds__post_icons}>
-                <Image src={like} alt="like"/>
+                <Image src={thumbs_up} alt="like"/>
                 <Image src={comment} alt="comment"/>
                 <Image src={share} alt="share"/>
             </div>          

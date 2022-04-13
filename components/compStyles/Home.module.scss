@@ -67,7 +67,6 @@
     // align-items: center;
     padding: 2.2rem 0 1.9rem;
     height: 100%;
-    display: fixed;
 
     
     
@@ -79,7 +78,7 @@
           }
         
         ul {
-            @media (max-width: 40.43em) {
+        @media (max-width: 31.2em) {
                 display: flex;
                 justify-content: space-around;
               }

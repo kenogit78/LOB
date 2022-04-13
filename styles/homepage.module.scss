@@ -1,43 +1,82 @@
 
 .main {
     // display: grid;
-    background-color: var(--main-bg-color);
+    // background-color: var(--main-bg-color);
     // grid-template-columns: 28.6% 41% 30%;
     display: flex;
     height: 100%;
     
-
     @media (max-width: 40.43em) {
         flex-direction: column;
-      }
+    }
     
     &_sidebar {
-        flex-basis: 28.6%;
-        
+        max-width: 28.6%;
+        position: fixed;
+        width: 28.6%;
+
         @media (max-width: 78.18em) {
             flex-basis: 10%;
-            }
-
+        }
+        @media (max-width: 60em) {
+            max-width: 20%;
+        }
+        
         @media (max-width: 40.43em) {
             order: 1;
-      }
+        }
+        
+        @media (max-width: 31.2em) {
+            position: relative;
+            display: none;
+        }
+    }
+    
+    &_sidebar_bottom {
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        padding: 2rem;
+        bottom: 0px;
+        background-color: var(--header-bg-color);
+        backdrop-filter: blur(11px);
+
+        @media (min-width: 31.2em) {
+            display: none;
+        }
+
+
+
     }
     
     &_home {
-        flex-basis: 41%;
+        max-width: 60%;
         background-color: rgb(29 29 58);
         flex-grow: 2;
-
+        margin-left: 40rem;
+        @media (max-width: 80em) {
+            margin-left: 35rem;
+        }
+        @media (max-width: 60em) {
+            margin-left: 20rem;
+        }
+        
         @media (max-width: 40.43em) {
             overflow: scroll;
             height: 80vh;
+            margin-left: 10rem;
+            max-width: 100%;
       }
+
+        @media (max-width: 31.2em) {
+            margin-left: 0;
+      }
+
     }
     
     &_explore {
-        flex-basis: 30%;
-        flex-shrink: 2;
-        @media (max-width: 70.18em) {
+        max-width: 30%;
+        @media (max-width: 62.5em) {
             display: none;
             }
 
