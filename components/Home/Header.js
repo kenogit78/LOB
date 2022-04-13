@@ -1,6 +1,6 @@
 import styles from '../compStyles/Home.module.scss'
 import user_image from '../../assets/user_image.png'
-import Bell from '../../assets/Bell.png'
+import Bell from '../../assets/bell.png'
 import Image from 'next/image';
 import Modal from './Modal';
 import { useState } from 'react';
