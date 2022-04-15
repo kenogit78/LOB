@@ -13,7 +13,6 @@
     &_sidebar {
         max-width: 28.6%;
         position: fixed;
-        width: 28.6%;
 
         @media (max-width: 78.18em) {
             flex-basis: 10%;
@@ -53,9 +52,9 @@
         max-width: 60%;
         background-color: rgb(29 29 58);
         flex-grow: 2;
-        margin-left: 40rem;
+        margin-left: 43rem;
         @media (max-width: 80em) {
-            margin-left: 35rem;
+            margin-left: 10rem;
         }
         @media (max-width: 60em) {
             margin-left: 20rem;

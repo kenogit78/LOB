@@ -41,19 +41,21 @@ const Home = () => {
         </div>
         <div className={styles.home_feeds}>
           <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
+              <Image src={post_avatar} />
           </div>
-          <div className={styles.home_feeds__post}>
-            <div className={styles.home_feeds__post_username}>
-              <h4>PaulKanayo</h4>
+          <div className={styles.home_feeds_container}>
+            <div className={styles.home_feeds__post}>
+              <div className={styles.home_feeds__post_username}>
+                <h4>PaulKanayo</h4>
+              </div>
+              <div className={styles.home_feeds__post_text}>
+                <p>Look at these foolish Man U defenders fgs</p>
+              </div>          
+              <div className={styles.home_feeds__post_img}>
+                  <Image src={post_img_1} alt="post image"/>
+                  <Image src={post_img_2} alt="post image"/>
+              </div>          
             </div>
-            <div className={styles.home_feeds__post_text}>
-              <p>Look at these foolish Man U defenders fgs</p>
-            </div>          
-            <div className={styles.home_feeds__post_img}>
-                <Image src={post_img_1} alt="post image"/>
-                <Image src={post_img_2} alt="post image"/>
-            </div>          
             <div className={styles.home_feeds__post_icons}>
                 <Image src={thumbs_up} alt="like"/>
                 <Image src={comment} alt="comment"/>
@@ -63,19 +65,41 @@ const Home = () => {
         </div>
         <div className={styles.home_feeds}>
           <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
+              <Image src={post_avatar} />
           </div>
-          <div className={styles.home_feeds__post}>
-            <div className={styles.home_feeds__post_username}>
-              <h4>PaulKanayo</h4>
+          <div className={styles.home_feeds_container}>
+            <div className={styles.home_feeds__post}>
+              <div className={styles.home_feeds__post_username}>
+                <h4>PaulKanayo</h4>
+              </div>
+              <div className={styles.home_feeds__post_text}>
+                <p>Look at these foolish Man U defenders fgs</p>
+              </div>                     
             </div>
-            <div className={styles.home_feeds__post_text}>
-              <p>Look at these foolish Man U defenders fgs</p>
+            <div className={styles.home_feeds__post_icons}>
+                <Image src={thumbs_up} alt="like"/>
+                <Image src={comment} alt="comment"/>
+                <Image src={share} alt="share"/>
             </div>          
-            <div className={styles.home_feeds__post_img}>
-                {/* <Image src={post_img_1} alt="post image"/>
-                <Image src={post_img_2} alt="post image"/> */}
-            </div>          
+          </div>
+        </div>
+        <div className={styles.home_feeds}>
+          <div className={styles.home_feeds__user_img}>
+              <Image src={post_avatar} />
+          </div>
+          <div className={styles.home_feeds_container}>
+            <div className={styles.home_feeds__post}>
+              <div className={styles.home_feeds__post_username}>
+                <h4>PaulKanayo</h4>
+              </div>
+              <div className={styles.home_feeds__post_text}>
+                <p>Look at these foolish Man U defenders fgs</p>
+              </div>          
+              <div className={styles.home_feeds__post_img}>
+                  <Image src={post_img_1} alt="post image"/>
+                  <Image src={post_img_2} alt="post image"/>
+              </div>          
+            </div>
             <div className={styles.home_feeds__post_icons}>
                 <Image src={thumbs_up} alt="like"/>
                 <Image src={comment} alt="comment"/>

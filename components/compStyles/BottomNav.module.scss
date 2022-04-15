@@ -1,0 +1,27 @@
+.bottom_nav {
+    position: relative;
+
+    nav {
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &_links {
+        display: flex;
+        column-gap: 5.3rem;
+    }
+}
+
+.addpost {
+    position: absolute;
+    left: 45%;
+    top: -110%;
+    
+    @media (max-width: 23.39em) {
+        left: 43%;
+        top: -100%;
+    }
+}

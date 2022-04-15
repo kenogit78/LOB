@@ -1,0 +1,28 @@
+.mobile_post {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        padding: 2rem;
+    }
+
+    &__input {
+        display: flex;
+        word-wrap: break-word;
+        padding-bottom: 4.4rem;
+
+        textarea {
+                font-weight: 200;
+                font-size: var(--font-p-text-1);
+                padding-left: 2.4rem;
+                padding-right: 5rem;
+                padding-top: 20px;
+                color: #BBBBBB;
+                overflow: hidden;
+                resize: none;
+                width: 100%;
+                background: var(--main-bg-color);
+            }
+    }
+}
