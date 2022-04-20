@@ -1,27 +1,59 @@
 .fixtures {
-    padding: 0 1rem;
+    // padding: 0 1rem;
 
-    h2 {
-        padding: 1.6rem 0 2.2rem;
+        @media (max-width: 31.2em) {
+            padding: 0;
+            background-color: var(--main-bg-color);
+        }
+    &__heading {
+        background-color: rgb(9 9 48);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(11px);
+
+        h2 {
+        padding: 1.6rem 1.5rem 2.2rem;
         font-weight: 600;
-        font-size: 3rem;
-        color: #005678;
+        font-size: var(--font-p-text-3);
+
+        @media (max-width: 31.2em) {
+            display: none;
+            }
+        }   
     }
+
     &_container {
         padding: 1.4rem 2.2rem;
-        background: #FFFFFF;
+        background: var(--main-bg-color);
         border-radius: 10px;
+        margin: 1rem;
+
+        @media (max-width: 31.2em) {
+            margin: 0;
+            }
+
+
+            @media (max-width: 31.2em) {
+                padding: 1.4rem 0;
+                border-radius: 0;
+
+            }
 
     }
 
     .fixturebox {
-        background-color: #F5F5F5;
+        background-color: var(--secondary-bg-color);
         border-radius: 10px;
         padding: 1.4rem 2rem 1.4rem 2.4rem;
         // padding: 1.4rem 2.4rem;
         display: flex;
         // justify-content: space-between;
         margin: .8rem 0;
+
+        @media (max-width: 31.2em) {
+            background-color: var(--main-bg-color);
+            border-radius: 0 0 10px 10px;
+            border-bottom: #f5fcff1a solid 1px;
+        }
 
         &__teams {
             display: flex;
@@ -39,7 +71,6 @@
             
             p {
                 font-size: 1.4rem;
-                color: #005678;
 
             }
 
@@ -70,8 +101,9 @@
                 text-align: center;
                 padding: .22rem 1.3rem;
                 border-radius: 6px;
-                font-weight: 400;
+                font-weight: 700;
                 font-size: 1.8rem;
+                color: #005678;
             }
         }
 
@@ -80,7 +112,6 @@
             p {
                 font-weight: 600;
                 font-size: 2.4rem;
-                color: #005678;
 
             }
         }

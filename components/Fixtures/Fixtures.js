@@ -9,7 +9,9 @@ import FC_Barcelona from '../../assets/FC_Barcelona.png'
 const Fixtures = () => {
   return (
     <div className={styles.fixtures}>
-      <h2>Fixtures</h2>
+      <div className={styles.fixtures__heading}>
+        <h2>Match Fixtures</h2>
+      </div>
       <div className={styles.fixtures_container}>
         <div className={styles.fixturebox}>
           <div className={styles.fixturebox__teams}>

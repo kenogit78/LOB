@@ -6,6 +6,7 @@ import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
 import Modal from '../components/Home/Modal';
 import Fixtures from '../components/Fixtures/Fixtures';
+import BottomNav from './../components/BottomNav';
 
 const fixtures = () => {
   return (
@@ -14,6 +15,9 @@ const fixtures = () => {
         <div className={styles.main}>
             <div className={styles.main_sidebar}>
                 <Sidebar />
+            </div>
+            <div className={styles.main_sidebar_bottom}>
+                <BottomNav />
             </div>
             <div className={styles.main_home}>
                 {/* <Table /> */}

@@ -4,6 +4,8 @@ import Home from './../components/Home/Home';
 import styles from '../styles/homepage.module.scss'
 import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
+import Messages from '../components/messages/Messages';
+import BottomNav from '../components/BottomNav';
 
 const messages = () => {
   return (
@@ -13,8 +15,11 @@ const messages = () => {
             <div className={styles.main_sidebar}>
                 <Sidebar />
             </div>
+            <div className={styles.main_sidebar_bottom}>
+                <BottomNav />
+            </div>
             <div className={styles.main_home}>
-                {/* <Table /> */}
+                <Messages />
             </div>
             <div className={styles.main_explore}>
                 <Explore />
