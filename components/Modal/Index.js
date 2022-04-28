@@ -10,7 +10,8 @@ const Modal = ({closeModal}) => {
 
   
   return (
-    <div onClick={() => closeModal(false)} className={styles.Modal}>
+    <>
+    <div className={styles.Modal}>
         <div className={styles.Modal__container}>
           <div className={styles.Modal__top}>
             <div onClick={() => closeModal(false)}>
@@ -43,6 +44,7 @@ const Modal = ({closeModal}) => {
           </div>
         </div>
     </div>
+    </>
   )
 }
 
