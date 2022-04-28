@@ -5,8 +5,12 @@ import styles from '../styles/homepage.module.scss'
 import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
 import BottomNav from '../components/BottomNav';
+import requireAuthentication from '../protected/index';
+
 
 const homepage = () => {
+
+
   return (
     <div className={styles.home_container}>
         <Header />
@@ -14,9 +18,9 @@ const homepage = () => {
             <div className={styles.main_sidebar}>
                 <Sidebar />
             </div>
-            <div className={styles.main_sidebar_bottom}>
+            {/* <div className={styles.main_sidebar_bottom}>
                 <BottomNav />
-            </div>
+            </div> */}
             <div className={styles.main_home}>
                 <Home />
             </div>
@@ -27,5 +31,15 @@ const homepage = () => {
     </div>
   )
 }
-
 export default homepage
+// export default requireAuthentication(homepage)
+
+// export const getServerSideProps = requireAuthentication(
+//     async (ctx) => {
+//         console.log(ctx.req.cookies)
+//         return {
+//             props: {},
+//         }
+//     }
+// )
+

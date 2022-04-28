@@ -362,3 +362,21 @@
         }
     }
 }
+
+
+.sidebar_bottom {
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        padding: 2rem;
+        bottom: 0px;
+        background-color: var(--header-bg-color);
+        backdrop-filter: blur(11px);
+
+        @media (min-width: 31.2em) {
+            display: none;
+        }
+
+
+
+    }

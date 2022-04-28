@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
@@ -13,8 +13,9 @@ import RowsFilled from './../assets/Rows_mobile_filled.png'
 import ArrowLeftRight from './../assets/ArrowsLeftRight_mobile.png'
 import ArrowLeftRightFilled from './../assets/ArrowsLeftRight_mobile_filled.png'
 import Plus from './../assets/PlusCircle.png'
+import Modal from './Modal/Index';
 
-const BottomNav = () => {
+const BottomNav = ({setOpenModal}) => {
 
   const dispatch = useDispatch()
   const router = useRouter()
@@ -49,10 +50,8 @@ const BottomNav = () => {
                 </li>
               </div>
             </ul>
-            <div className={styles.addpost}>
-              <Link href='/table'>
-                  <a><Image src={Plus} alt='Table'/></a>
-                </Link>
+            <div className={styles.addpost} onClick={() => setOpenModal(true)}>
+              <Image src={Plus} alt='Table'/>
             </div>
         </nav>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Header from './Header'
 import styles from '../compStyles/Home.module.scss'
 import Image from 'next/image';
@@ -13,10 +13,30 @@ import avatar from '../../assets/avatar.png'
 import post_avatar from '../../assets/post_avatar.png'
 import post_img_1 from '../../assets/post_img_1.png'
 import post_img_2 from '../../assets/post_img_2.png'
+import Modal from '../Modal/Index';
+import BottomNav from '../BottomNav';
 
 const Home = () => {
+
+  const [openModal, setOpenModal] = useState(false)
+
+  
+  const modalRef = useRef()
+
+  console.log(openModal)
+
+  // console.log(modalRef)
+
+  // const openModal = (e) => {
+  //   e.preventDefault()
+  //   console.log(modalRef.current)
+  // }
+
   return (
     <div className={styles.home}>
+
+      {openModal && <Modal closeModal={setOpenModal}/>}
+
       <div className={styles.heading}>
         <h2>Home</h2>
       </div>
@@ -35,7 +55,7 @@ const Home = () => {
                 <Image src={image} alt="image"/>
                 <Image src={mic} alt="mic"/>
               </div>
-              <button>Send</button>
+              <button onClick={openModal}>Send</button>
             </div>
           </form>
         </div>
@@ -107,6 +127,9 @@ const Home = () => {
             </div>          
           </div>
         </div>
+      </div>
+      <div className={styles.sidebar_bottom}>
+        <BottomNav setOpenModal={setOpenModal}/>
       </div>
     </div>
   )
