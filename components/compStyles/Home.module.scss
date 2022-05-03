@@ -289,13 +289,15 @@
                 column-gap: 3rem;
             }
             
-            button {
+            input {
                 width: 13.8rem;
                 height: 4rem;
                 border-radius: 6px;
                 font-weight: 700;
                 font-size: var(--font-p-text-1);
                 text-align: center;
+                background: var(--btn-bg-color);
+                cursor: pointer;
             }
         }
     }
