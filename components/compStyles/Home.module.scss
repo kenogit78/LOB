@@ -224,7 +224,12 @@
 }
 
 .home {
-    
+
+    @media (max-width: 31.2em) {
+        margin-bottom: 10rem;
+        // height: 100rem;
+
+    }
     .heading {
         background-color: rgb(9 9 48);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

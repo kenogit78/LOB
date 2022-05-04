@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Header from './Header';
 import styles from '../compStyles/Home.module.scss';
 import Image from 'next/image';
@@ -27,8 +27,6 @@ const Home = () => {
   const [liked, setLiked] = useState(false);
   const [desc, setDesc] = useState('');
 
-  console.log(openModal);
-
   const dispatch = useDispatch();
 
   const { user, post } = useSelector((state) => state.auth);
@@ -49,6 +47,11 @@ const Home = () => {
   const like = () => {
     setLiked(!liked);
   };
+
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow = openModal ? 'hidden' : 'auto';
+  }, [openModal]);
 
   return (
     <div className={styles.home}>
@@ -157,6 +160,34 @@ const Home = () => {
               <div className={styles.home_feeds__post_img}>
                 <Image src={post_img_1} alt="post image" />
                 <Image src={post_img_2} alt="post image" />
+              </div>
+            </div>
+            <div className={styles.home_feeds__post_icons}>
+              <Image src={thumbs_up} alt="like" />
+              <Image
+                src={comment}
+                alt="comment"
+                onClick={() => setOpenModal(true)}
+              />
+              <Image src={share} alt="share" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.home_feeds}>
+          <div className={styles.home_feeds__user_img}>
+            <Image src={post_avatar} />
+          </div>
+          <div className={styles.home_feeds_container}>
+            <div className={styles.home_feeds__post}>
+              <div className={styles.home_feeds__post_username}>
+                <h4>PaulKanayo</h4>
+              </div>
+              <div className={styles.home_feeds__post_text}>
+                <p>Look at these foolish Man U defenders fgs</p>
+              </div>
+              <div className={styles.home_feeds__post_img}>
+                <Image src={post_img_1} alt="post image" />
+                {/* <Image src={post_img_2} alt="post image" /> */}
               </div>
             </div>
             <div className={styles.home_feeds__post_icons}>

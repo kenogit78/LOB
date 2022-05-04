@@ -5,7 +5,7 @@ import Image from 'next/image';
 import avatar from '../../assets/avatar.png';
 import image from '../../assets/image.svg';
 import mic from '../../assets/mic.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 //Redux & State
 import { useSelector, useDispatch } from 'react-redux';
@@ -30,8 +30,6 @@ const Modal = ({ closeModal }) => {
 
     closeModal(true);
   };
-
-  console.log('isloading', isLoading);
 
   return (
     <>
