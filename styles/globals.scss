@@ -28,6 +28,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: 62.5%;
   background-color: var(--main-bg-color);
+  // min-height: -webkit-fill-available;
   
   
   @media (max-width: 75em) {
@@ -44,7 +45,9 @@ body {
 }
 
 body {
-  height: 100vh;
+    // min-height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+
 }
 
 a {
