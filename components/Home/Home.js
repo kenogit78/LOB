@@ -29,9 +29,11 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
-  let vh = window.innerHeight * 0.01;
-  // Then we set the value in the --vh custom property to the root of the document
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  useEffect(() => {
+    let vh = window.innerHeight * 0.01;
+    // Set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }, []);
 
   const { user, post } = useSelector((state) => state.auth);
 
