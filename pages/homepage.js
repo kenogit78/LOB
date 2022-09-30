@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Home/Header';
 import Home from './../components/Home/Home';
 import styles from '../styles/homepage.module.scss';
@@ -6,8 +6,17 @@ import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
 import BottomNav from '../components/BottomNav';
 import requireAuthentication from '../protected/index';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../auth/authSlice';
+import { wrapper, State } from '../store';
 
-const homepage = () => {
+const homepage = ({ data, user }) => {
+  // const header = `Authorization: Bearer ${token}`;
+
+  // const user = useSelector((state) => state).auth;
+
+  console.log(user);
   return (
     <div className={styles.home_container}>
       <Header />
@@ -28,14 +37,41 @@ const homepage = () => {
     </div>
   );
 };
-export default homepage;
+
 // export default requireAuthentication(homepage)
 
-// export const getServerSideProps = requireAuthentication(
-//     async (ctx) => {
-//         console.log(ctx.req.cookies)
-//         return {
-//             props: {},
-//         }
-//     }
-// )
+export const getServerSideProps = wrapper.getServerSideProps(
+  ({ store }) =>
+    async ({ res }) => {
+      try {
+        //ADD AUTHHEADERS
+        const header = `Authorization: Bearer ${token}`;
+
+        const user = useSelector(selectCurrentUser);
+
+        console.log(user);
+        const res = await axios.get('http://localhost:8000/api/post');
+        // const images = await getCampaignImages(state);
+
+        // const villages = await getVillages(state);
+        console.log('State on server', params);
+
+        const data = await res.data;
+        return {
+          props: {
+            data,
+            user: user,
+            // images: images.data,
+            // villages: villages.data,
+          },
+        };
+      } catch {
+        res.statusCode = 404;
+        return {
+          props: {},
+        };
+      }
+    }
+);
+
+export default homepage;

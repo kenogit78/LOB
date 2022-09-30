@@ -56,6 +56,15 @@ export const authSlice = createSlice({
       state.isError = false;
       state.message = '';
     },
+    setCredentials: (state, action) => {
+      const { user, token } = action.payload;
+      state.user = user;
+      state.token = token;
+    },
+    logOut: (state, action) => {
+      state.user = null;
+      state.token = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -95,3 +104,8 @@ export const authSlice = createSlice({
 
 export const { reset } = authSlice.actions;
 export default authSlice.reducer;
+
+export const { setCredentials, logOut } = authSlice.actions;
+
+export const selectCurrentUser = (state) => state.auth.user;
+export const selectCurrentToken = (state) => state.auth.token;

@@ -5,27 +5,34 @@ import styles from '../compStyles/Onboarding.module.scss';
 import google_img from '../../assets/google.png';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, reset } from '../../auth/authSlice';
+import {
+  login,
+  reset,
+  selectCurrentUser,
+  setCredentials,
+} from '../../auth/authSlice';
 
 import { logout } from '../../auth/authSlice';
 import { useRouter } from 'next/router';
 import Loader from '../Loader';
 
-//Toast
+//Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLoginMutation } from '../../auth/authApiSlice';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [formData, setFormData] = useState({
-    account: '',
+    email: '',
     password: '',
   });
 
   const router = useRouter();
   const dispatch = useDispatch();
+  const [login, { isLoading }] = useLoginMutation();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
 
@@ -43,22 +50,26 @@ function Login() {
       });
     }
     if (isSuccess || user) {
-      // router.push('/homepage')
+      // router.push('/homepage');
     }
-    dispatch(reset());
+    // dispatch(reset());
   }, [user, isError, isSuccess, message, dispatch]);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const userData = {
-      account,
+      email,
       password,
     };
-    dispatch(login(userData));
+    // dispatch(login(userData));
+    try {
+      const loginData = await login(userData).unwrap();
+      dispatch(setCredentials({ ...loginData, userData }));
+    } catch (err) {}
   };
 
   const onChange = (e) => {
@@ -68,7 +79,7 @@ function Login() {
     }));
   };
 
-  const { account, password } = formData;
+  const { email, password } = formData;
 
   return (
     <div className={`${styles.login_container}`}>
@@ -81,10 +92,10 @@ function Login() {
           <label htmlFor="email">Username or email address</label>
           <input
             type="text"
-            id="account"
+            id="email"
             placeholder="Enter Username or Email"
-            name="account"
-            value={account}
+            name="email"
+            value={email}
             onChange={onChange}
             className={`${styles.login_input}`}
           />

@@ -29,6 +29,12 @@ export const postSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => initialState,
+    setPost: (state, action) => {
+      console.log(action);
+      const { post } = action.payload;
+      state.user = user;
+      state.token = token;
+    },
   },
   extraReducers: (builder) => {
     builder

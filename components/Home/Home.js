@@ -20,7 +20,20 @@ import BottomNav from '../BottomNav';
 //Redux & State
 import { useSelector, useDispatch } from 'react-redux';
 import { createPost } from '../../post/postSlice';
+import { useAddNewPostMutation } from '../../post/postApiSlice';
 import axios from 'axios';
+
+// Toastify
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  selectCurrentToken,
+  selectCurrentUser,
+  setCredentials,
+} from '../../auth/authSlice';
+import { useGetPostQuery } from '../../post/postApiSlice';
+import { useGetPostsQuery } from '../../post/pApiSlice';
+import Post from './Post';
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -29,15 +42,67 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
+  const user = useSelector(selectCurrentUser);
+  const token = useSelector(selectCurrentToken);
+
+  const [addNewPost, { isLoading }] = useAddNewPostMutation();
+
+  const canSave = [user?.id, desc].every(Boolean) && !isLoading;
+
+  console.log(canSave);
+
+  const handleNewPost = async (e) => {
+    e.preventDefault();
+    if (canSave) {
+      try {
+        await addNewPost({ userId: user?.id, desc }).unwrap();
+        setDesc('');
+      } catch (err) {
+        console.error('Failed to save the post: ', err);
+      }
+    }
+  };
+
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     // Set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }, []);
 
-  const { user, post } = useSelector((state) => state.auth);
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     toast.success(message, {
+  //       className: `${styles.error_toast}`,
+  //       position: 'top-left',
+  //       // zIndex: 10000,
+  //       autoClose: 5000,
+  //       hideProgressBar: true,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //     });
+  //   }
+  // }, [message]);
 
-  const userId = user?.data.user._id;
+  // const userId = user?.data.user._id;
+
+  useEffect(() => {
+    try {
+      const refreshData = axios
+        .get('http://localhost:8000/auth/refresh', { withCredentials: true })
+        .then((res) => {
+          dispatch(setCredentials({ ...res.data }));
+        });
+      // console.log(refreshData);
+    } catch (err) {}
+  }, []);
+
+  const { data: post, isError, isSuccess } = useGetPostQuery();
+
+  const posts = post?.data.data;
+
+  console.log(posts);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -50,7 +115,8 @@ const Home = () => {
     setDesc('');
   };
 
-  const like = () => {
+  const like = (e) => {
+    console.log(e.target);
     setLiked(!liked);
   };
 
@@ -64,11 +130,12 @@ const Home = () => {
       {openModal && <Modal closeModal={setOpenModal} />}
 
       <div className={styles.heading}>
+        <ToastContainer />
         <h2>Home</h2>
       </div>
       <div className={styles.home_main}>
         <div className={styles.home_post}>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={handleNewPost}>
             <div className={styles.home_post__input}>
               <div className={styles.home_post__avatar}>
                 <Image src={avatar} alt="avatar" />
@@ -93,120 +160,9 @@ const Home = () => {
             </div>
           </form>
         </div>
-        <div className={styles.home_feeds}>
-          <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
-          </div>
-          <div className={styles.home_feeds_container}>
-            <div className={styles.home_feeds__post}>
-              <div className={styles.home_feeds__post_username}>
-                <h4>PaulKanayo</h4>
-              </div>
-              <div className={styles.home_feeds__post_text}>
-                <p>Look at these foolish Man U defenders fgs</p>
-              </div>
-              <div className={styles.home_feeds__post_img}>
-                <Image src={post_img_1} alt="post image" />
-                <Image src={post_img_2} alt="post image" />
-              </div>
-            </div>
-            <div className={styles.home_feeds__post_icons}>
-              <div>
-                <Image
-                  src={liked ? likefilled : thumbs_up}
-                  alt="like"
-                  onClick={like}
-                />
-              </div>
-              <Image
-                src={comment}
-                alt="comment"
-                onClick={() => setOpenModal(true)}
-              />
-              <Image src={share} alt="share" />
-            </div>
-          </div>
-        </div>
-        <div className={styles.home_feeds}>
-          <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
-          </div>
-          <div className={styles.home_feeds_container}>
-            <div className={styles.home_feeds__post}>
-              <div className={styles.home_feeds__post_username}>
-                <h4>PaulKanayo</h4>
-              </div>
-              <div className={styles.home_feeds__post_text}>
-                <p>Look at these foolish Man U defenders fgs</p>
-              </div>
-            </div>
-            <div className={styles.home_feeds__post_icons}>
-              <Image src={thumbs_up} alt="like" />
-              <Image
-                src={comment}
-                alt="comment"
-                onClick={() => setOpenModal(true)}
-              />
-              <Image src={share} alt="share" />
-            </div>
-          </div>
-        </div>
-        <div className={styles.home_feeds}>
-          <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
-          </div>
-          <div className={styles.home_feeds_container}>
-            <div className={styles.home_feeds__post}>
-              <div className={styles.home_feeds__post_username}>
-                <h4>PaulKanayo</h4>
-              </div>
-              <div className={styles.home_feeds__post_text}>
-                <p>Look at these foolish Man U defenders fgs</p>
-              </div>
-              <div className={styles.home_feeds__post_img}>
-                <Image src={post_img_1} alt="post image" />
-                <Image src={post_img_2} alt="post image" />
-              </div>
-            </div>
-            <div className={styles.home_feeds__post_icons}>
-              <Image src={thumbs_up} alt="like" />
-              <Image
-                src={comment}
-                alt="comment"
-                onClick={() => setOpenModal(true)}
-              />
-              <Image src={share} alt="share" />
-            </div>
-          </div>
-        </div>
-        <div className={styles.home_feeds}>
-          <div className={styles.home_feeds__user_img}>
-            <Image src={post_avatar} />
-          </div>
-          <div className={styles.home_feeds_container}>
-            <div className={styles.home_feeds__post}>
-              <div className={styles.home_feeds__post_username}>
-                <h4>PaulKanayo</h4>
-              </div>
-              <div className={styles.home_feeds__post_text}>
-                <p>Look at these foolish Man U defenders fgs</p>
-              </div>
-              <div className={styles.home_feeds__post_img}>
-                <Image src={post_img_1} alt="post image" />
-                {/* <Image src={post_img_2} alt="post image" /> */}
-              </div>
-            </div>
-            <div className={styles.home_feeds__post_icons}>
-              <Image src={thumbs_up} alt="like" />
-              <Image
-                src={comment}
-                alt="comment"
-                onClick={() => setOpenModal(true)}
-              />
-              <Image src={share} alt="share" />
-            </div>
-          </div>
-        </div>
+        {posts?.map((post) => {
+          return <Post key={post._id} posts={post} user={user} token={token} />;
+        })}
       </div>
       <div className={styles.sidebar_bottom}>
         <BottomNav setOpenModal={setOpenModal} />

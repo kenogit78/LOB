@@ -4,13 +4,14 @@
 
 :root {
   //Colors
-  --main-bg-color: #01012B;
+  --main-bg-color: #fff;
   --header-bg-color: #01012b83;
-  --secondary-bg-color: rgb(29 29 58);
-  --icon-active-color: #FF2A6D;
-  --btn-bg-color: #05D9E8;
-  --btn-color-black: #01012B;
-  
+  --secondary-bg-color: rgb(239, 239, 240);
+  --icon-active-color: #7d7abc;
+  --btn-bg-color: #7d7abc;
+  --btn-color-black: #01012b;
+  --btn-color-white: #fff;
+
   //Fonts
   --font-header: 3.2rem;
   --font-p-text-1: 1.6rem;
@@ -18,36 +19,34 @@
   --font-p-text-3: 2.4rem;
 
   --font-text-white: #fff;
-
+  --font-text-dark: #3f3f3f;
 }
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 62.5%;
   background-color: var(--main-bg-color);
   // min-height: -webkit-fill-available;
-  
-  
+
   @media (max-width: 75em) {
-        font-size: 56.25%;
-      }
+    font-size: 56.25%;
+  }
 
-    @media (max-width: 56.25em) {
-        font-size: 50%;
-      }
+  @media (max-width: 56.25em) {
+    font-size: 50%;
+  }
 
-    @media (max-width: 23.43em) {
-        font-size: 35.25%;
-      }
+  @media (max-width: 23.43em) {
+    font-size: 35.25%;
+  }
 }
 
 body {
-    // min-height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-
+  // min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 a {
@@ -55,12 +54,16 @@ a {
   text-decoration: none;
 }
 
-p, h2, h3, h4 {
-  color: var(--font-text-white);
+p,
+h2,
+h3,
+h4 {
+  color: var(--font-text-dark);
 }
 button {
   background-color: var(--btn-bg-color);
-  color: var(--btn-color-black);
+  color: var(--btn-color-white);
+  box-shadow: 0px 17px 33px -3px rgba(0, 0, 0, 0.1);
 }
 
 * {
