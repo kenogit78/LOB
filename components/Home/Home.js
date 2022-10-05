@@ -57,12 +57,14 @@ const Home = () => {
 
   const canSave = [user?.id, desc].every(Boolean) && !isLoading;
 
-  console.log(imageUpload);
+  // console.log(imageUpload);
 
-  console.log(token);
+  // console.log(token);
+
+  // Make Post Function
   const handleNewPost = async (e) => {
     e.preventDefault();
-    console.log('post');
+    // console.log('post');
     // console.log(img);
     // const headers = {
     //   authorization: `Bearer ${token}`,
@@ -88,7 +90,7 @@ const Home = () => {
       try {
         await addNewPost(formData).unwrap();
 
-        // axios.post('http://localhost:8000/api/post/new', data, {
+        // axios.post('https://league-of-billions.up.railway.app/api/post/new', data, {
         //   headers: {
         //     authorization: `Bearer ${token}`,
         //     Accept: 'application/json',
@@ -133,13 +135,15 @@ const Home = () => {
   useEffect(() => {
     // try {
     const refreshData = axios
-      .get('http://localhost:8000/auth/refresh', { withCredentials: true })
+      .get('https://league-of-billions.up.railway.app/auth/refresh', {
+        withCredentials: true,
+      })
       .then((res) => {
         dispatch(setCredentials({ ...res.data }));
         setLoading(false);
       })
       .catch((err) => {
-        router.push('/');
+        // router.push('/');
 
         console.log(err);
       });
@@ -153,9 +157,7 @@ const Home = () => {
 
   const posts = post?.data.data;
 
-  // FUNCTION FOR PREVIEWING IMAGES
-
-  console.log(img);
+  /* FUNCTION FOR PREVIEWING IMAGES */
 
   //IMAGE ONCHANGE
   const onSelectFile = (event) => {
@@ -178,21 +180,21 @@ const Home = () => {
     URL.revokeObjectURL(image);
   };
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const postData = {
-      userId,
-      desc,
-    };
-    dispatch(createPost(postData));
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const postData = {
+  //     userId,
+  //     desc,
+  //   };
+  //   dispatch(createPost(postData));
 
-    setDesc('');
-  };
+  //   setDesc('');
+  // };
 
-  const like = (e) => {
-    console.log(e.target);
-    setLiked(!liked);
-  };
+  // const like = (e) => {
+  //   console.log(e.target);
+  //   setLiked(!liked);
+  // };
 
   useEffect(() => {
     const body = document.querySelector('body');

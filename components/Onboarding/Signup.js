@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //Auth
 import { signup, reset } from './../../auth/authSlice';
 import FormInput from './FormInput';
+import { useSignupMutation } from '../../auth/authApiSlice';
 
 function Signup() {
   //Form data state
@@ -41,7 +42,10 @@ function Signup() {
   // Dispatch initilization
   const dispatch = useDispatch();
 
-  // Selector Initializatio to get states from redux
+  // signup api from rtk query
+  const [signup] = useSignupMutation();
+
+  // Selector Initialization to get states from redux
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
@@ -74,7 +78,21 @@ function Signup() {
     }));
   };
 
-  const onSubmit = (e) => {
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   const userData = {
+  //     fullname,
+  //     email,
+  //     password,
+  //     phone_number,
+  //     username,
+  //   };
+
+  //   console.log(userData);
+  //   dispatch(signup(userData));
+  // };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     const userData = {
       fullname,
@@ -83,7 +101,13 @@ function Signup() {
       phone_number,
       username,
     };
-    dispatch(signup(userData));
+
+    try {
+      const signupData = await signup(userData).unwrap();
+      // console.log(signupData);
+      router.push('/verifiedpage');
+      dispatch(setCredentials({ ...signupData, userData }));
+    } catch (err) {}
   };
 
   const handleShowPassword = () => {
@@ -96,7 +120,7 @@ function Signup() {
     setChecked(!checked);
   };
 
-  console.log(checked);
+  // console.log(checked);
 
   const inputs = [
     {

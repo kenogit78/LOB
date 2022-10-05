@@ -53,7 +53,9 @@ export const getServerSideProps = wrapper.getServerSideProps(
         const user = useSelector(selectCurrentUser);
 
         console.log(user);
-        const res = await axios.get('http://localhost:8000/api/post');
+        const res = await axios.get(
+          'https://league-of-billions.up.railway.app/api/post'
+        );
         // const images = await getCampaignImages(state);
 
         // const villages = await getVillages(state);

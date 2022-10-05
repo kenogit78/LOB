@@ -15,6 +15,10 @@ import ArrowLeftRightFilled from './../assets/ArrowsLeftRight_mobile_filled.png'
 import Plus from './../assets/PlusCircle.png';
 import Modal from './Modal/Index';
 import {
+  RiAddBoxFill,
+  RiAddCircleFill,
+  RiAddCircleLine,
+  RiAddFill,
   RiArrowLeftRightFill,
   RiHome3Fill,
   RiHome3Line,
@@ -82,7 +86,7 @@ const BottomNav = ({ setOpenModal }) => {
           </div>
         </ul>
         <div className={styles.addpost} onClick={() => setOpenModal(true)}>
-          <Image src={Plus} alt="Table" />
+          <RiAddCircleLine size={40} color={'#111'} />
         </div>
       </nav>
     </div>

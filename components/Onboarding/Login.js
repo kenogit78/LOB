@@ -81,7 +81,9 @@ function Login() {
     // dispatch(logout());
     // dispatch(reset());
     axios
-      .get('http://localhost:8000/auth/logout', { withCredentials: true })
+      .get('https://league-of-billions.up.railway.app/auth/logout', {
+        withCredentials: true,
+      })
       .then((res) => {});
     // router.push('/login');
   };

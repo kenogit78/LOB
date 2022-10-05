@@ -29,11 +29,11 @@ const Post = ({ posts, user, token }) => {
   const like = async (e) => {
     setLiked(!liked);
     liked === false ? setLikeCount(likeCount + 1) : setLikeCount(likeCount - 1);
-    console.log(user);
+    // console.log(user);
     try {
       await axios
         .put(
-          `http://localhost:8000/api/post/${posts._id}/like`,
+          `https://league-of-billions.up.railway.app/api/post/${posts._id}/like`,
           { userId: user.id },
           {
             headers: {
@@ -62,7 +62,7 @@ const Post = ({ posts, user, token }) => {
   //   try {
   //     await axios
   //       .delete(
-  //         `http://localhost:8000/api/post/${posts._id}`,
+  //         `https://league-of-billions.up.railway.app/api/post/${posts._id}`,
   //         {
   //           headers: {
   //             'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const Post = ({ posts, user, token }) => {
   //   }
   // };
 
-  console.log(posts.img);
+  // console.log(posts);
 
   return (
     <div className={styles.post}>
@@ -90,7 +90,7 @@ const Post = ({ posts, user, token }) => {
         <div className={styles.home_feeds_container}>
           <div className={styles.home_feeds__post}>
             <div className={styles.home_feeds__post_username}>
-              <h4>{user?.username}</h4>
+              <h4>{posts?.userId}</h4>
             </div>
             <div className={styles.home_feeds__post_text}>
               <p>{posts.desc}</p>

@@ -3,7 +3,8 @@ import { setCredentials, logOut } from './authSlice';
 
 const baseQuery = fetchBaseQuery({
   // baseUrl: 'https://league-of-billions.up.railway.app/',
-  baseUrl: 'http://localhost:8000/',
+  // baseUrl: 'https://league-of-billions.up.railway.app/',
+  baseUrl: 'https://league-of-billions.up.railway.app/',
   credentials: 'include',
   prepareHeaders: async (headers, { getState }) => {
     const token = await getState().auth.token;

@@ -37,7 +37,9 @@ const Sidebar = () => {
     e.preventDefault();
     // dispatch(logout());
     // dispatch(reset());
-    axios.get('http://localhost:8000/auth/logout').then((res) => {});
+    axios
+      .get('https://league-of-billions.up.railway.app/auth/logout')
+      .then((res) => {});
     // router.push('/login');
   };
 
