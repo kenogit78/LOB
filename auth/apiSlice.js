@@ -9,6 +9,8 @@ const baseQuery = fetchBaseQuery({
     const token = await getState().auth.token;
     if (token) {
       headers.set('authorization', `Bearer ${token}`);
+      // headers.set('Content-Type', 'multipart/form-data');
+      // headers.set('Accept', 'multipart/form-data');
     }
     return headers;
   },

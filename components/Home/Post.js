@@ -16,13 +16,14 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 import { useDeletePostMutation } from '../../post/postApiSlice';
+import { RiDeleteBin3Line, RiHeartsFill, RiHeartsLine } from 'react-icons/ri';
 
 const Post = ({ posts, user, token }) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(posts.likes.length);
 
   useEffect(() => {
-    posts?.likes.includes(user.id) ? setLiked(true) : '';
+    posts?.likes.includes(user?.id) ? setLiked(true) : '';
   }, []);
 
   const like = async (e) => {
@@ -76,6 +77,8 @@ const Post = ({ posts, user, token }) => {
   //   }
   // };
 
+  console.log(posts.img);
+
   return (
     <div className={styles.post}>
       {/* {posts?.map((post) => {
@@ -93,20 +96,34 @@ const Post = ({ posts, user, token }) => {
               <p>{posts.desc}</p>
             </div>
             <div className={styles.home_feeds__post_img}>
-              {/* {posts.img.map((img) => {
-                return <Image layout="fill" src={''} alt="post image" />;
-              })} */}
-              {/* <Image src={post_img_1} alt="post image" /> */}
+              {posts.img.map((img) => {
+                return <img src={img} alt="post image" />;
+              })}
+              {/* <Image
+                src={
+                  'https://res.cloudinary.com/odizee/image/upload/v1664943215/juliiiuqmahyvfpguvqb.avif'
+                }
+                layout="fill"
+                alt="post image"
+              /> */}
             </div>
           </div>
           <div className={styles.home_feeds__post_icons}>
             <div className="flex items-center gap-2 cursor-pointer">
-              <Image
+              {/* <Image
                 src={liked ? likefilled : thumbs_up}
                 alt="like"
                 onClick={(e) => like(e)}
-              />
-              <p className="text-[1.5rem]">
+              /> */}
+              <div onClick={(e) => like(e)}>
+                {liked ? (
+                  <RiHeartsFill size={20} color="#FF5A5F" />
+                ) : (
+                  <RiHeartsLine size={20} />
+                )}
+              </div>
+
+              <p className="text-[1.2rem]">
                 {likeCount > 0 ? likeCount : null}
               </p>
             </div>
@@ -115,9 +132,12 @@ const Post = ({ posts, user, token }) => {
               alt="comment"
               onClick={() => setOpenModal(true)}
             /> */}
-            {user.id == posts.userId ? (
-              <div className={styles.delete} onClick={deleteAPost}>
-                <Image src={share} alt="share" />
+            {user?.id == posts?.userId ? (
+              <div
+                className={`cursor-pointer ${styles.delete}`}
+                onClick={deleteAPost}
+              >
+                <RiDeleteBin3Line size={20} />
               </div>
             ) : null}
           </div>

@@ -1,51 +1,58 @@
-// export function requireAuthentication(gssp) {
-//     return async (context) => {
-//         const { req, res } = context;
-//         // const token = req.cookies.userToken;
+import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import Loader from '../components/misc/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentToken, setCredentials } from '../auth/authSlice';
+import axios from 'axios';
 
-//         // const token = req.header?.cookies
-//         const token = req.cookies
+const ProtectedHOC = (WrappedComponent) => {
+  return (props) => {
+    //Loading state
+    const [loading, setLoading] = useState(true);
+    const [accessToken, setAccessToken] = useState();
+    const dispatch = useDispatch();
 
-//         console.log(req)
+    // Auth State
+    // const accessToken = useSelector(selectCurrentToken);
+    console.log(accessToken);
 
-//         if (!token) {
-//             // Redirect to login page
-//             return {
-//                 redirect: {
-//                     destination: '/login',
-//                     statusCode: 302
-//                 }
-//             };
-//         }
+    //   console.log(userProfile);
+    const router = useRouter();
 
-//         return await gssp(context); // Continue on to call `getServerSideProps` logic
-//     }
-// }
+    // useEffect(() => {
+    //   try {
+    //     const refreshData = () =>
+    //       axios
+    //         .get('http://localhost:8000/auth/refresh', {
+    //           withCredentials: true,
+    //         })
+    //         .then((res) => {
+    //           dispatch(setCredentials({ ...res.data }));
+    //           setAccessToken(res.data);
+    //         });
+    //     refreshData();
+    //   } catch (err) {
+    //     console.log(err);
+    //     if (err) {
+    //       // router.push('/');
+    //     }
+    //   }
+    // }, []);
 
-import { useRouter } from "next/router";
-const requireAuthentication = (WrappedComponent) => {
-  return function Auth (props) {
-    // checks whether we are on client / browser or server.
-    const Router = useRouter();
-    if (typeof window !== "undefined") {
-
-      const user = JSON.parse(localStorage.getItem("user"));
-      
-      const accessToken = user?.data.access_token
-
-      // If there is no access token we redirect to "/" page.
+    useEffect(() => {
       if (!accessToken) {
-          Router.push('/')
-        }
+        console.log('I made it', accessToken);
+        // router.push('/');
+      } else {
+        setLoading(false);
+      }
+    }, [accessToken]);
 
-      // If this is an accessToken we just render the component that was passed with all its props
-
-      return <WrappedComponent {...props} />;
-    }
-
-    // If we are on server, return null
-    return null;
+    if (loading) return <Loader />;
+    return <WrappedComponent {...props} />;
   };
+  return null;
 };
 
-export default requireAuthentication;
+export default ProtectedHOC;

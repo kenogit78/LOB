@@ -4,6 +4,7 @@
 
 :root {
   //Colors
+  --primary-color: #7d7abc;
   --main-bg-color: #fff;
   --header-bg-color: #01012b83;
   --secondary-bg-color: rgb(239, 239, 240);
@@ -14,9 +15,9 @@
 
   //Fonts
   --font-header: 3.2rem;
-  --font-p-text-1: 1.6rem;
-  --font-p-text-2: 1.8rem;
-  --font-p-text-3: 2.4rem;
+  --font-p-text-1: clamp(14px, 3vw, 1.5rem);
+  --font-p-text-2: clamp(16px, 3vw, 1.5rem);
+  --font-p-text-3: clamp(20px, 3vw, 1.5rem);
 
   --font-text-white: #fff;
   --font-text-dark: #3f3f3f;
@@ -63,7 +64,7 @@ h4 {
 button {
   background-color: var(--btn-bg-color);
   color: var(--btn-color-white);
-  box-shadow: 0px 17px 33px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 17px 33px -3px rgba(228, 225, 225, 0.1);
 }
 
 * {

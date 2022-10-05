@@ -5,10 +5,10 @@ import styles from '../styles/homepage.module.scss';
 import Explore from './../components/Home/Explore';
 import Sidebar from './../components/Home/Sidebar';
 import BottomNav from '../components/BottomNav';
-import requireAuthentication from '../protected/index';
+import ProtectedHOC from '../protected/index';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../auth/authSlice';
+import { selectCurrentToken, selectCurrentUser } from '../auth/authSlice';
 import { wrapper, State } from '../store';
 
 const homepage = ({ data, user }) => {
@@ -16,7 +16,10 @@ const homepage = ({ data, user }) => {
 
   // const user = useSelector((state) => state).auth;
 
-  console.log(user);
+  // const accessToken = useSelector(selectCurrentToken);
+  // console.log(accessToken);
+
+  // console.log(user);
   return (
     <div className={styles.home_container}>
       <Header />
@@ -38,7 +41,7 @@ const homepage = ({ data, user }) => {
   );
 };
 
-// export default requireAuthentication(homepage)
+// export default ProtectedHOC(homepage);
 
 export const getServerSideProps = wrapper.getServerSideProps(
   ({ store }) =>

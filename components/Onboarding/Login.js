@@ -20,6 +20,7 @@ import Loader from '../Loader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoginMutation } from '../../auth/authApiSlice';
+import axios from 'axios';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(true);
@@ -35,6 +36,8 @@ function Login() {
   const { user, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   );
+
+  console.log(user);
 
   useEffect(() => {
     if (isError) {
@@ -69,7 +72,18 @@ function Login() {
     try {
       const loginData = await login(userData).unwrap();
       dispatch(setCredentials({ ...loginData, userData }));
+      router.push('/homepage');
     } catch (err) {}
+  };
+
+  const onLogout = async (e) => {
+    e.preventDefault();
+    // dispatch(logout());
+    // dispatch(reset());
+    axios
+      .get('http://localhost:8000/auth/logout', { withCredentials: true })
+      .then((res) => {});
+    // router.push('/login');
   };
 
   const onChange = (e) => {
@@ -136,6 +150,7 @@ function Login() {
       <div className={`${styles.login_google}`}>
         <button
           className={`${styles.login_google_btn} flex pl-28 items-center`}
+          onClick={onLogout}
         >
           <Image src={google_img} alt="google logo" />
           <span className="pl-28">Sign in using Google</span>

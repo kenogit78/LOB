@@ -3,7 +3,7 @@
   top: -0.5px;
   z-index: 100;
   backdrop-filter: blur(12px);
-  border-bottom: #d6d6dd solid 1px;
+  border-bottom: #eff3f4 solid 1px;
 }
 
 .header {
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
+  padding: 0 6.9rem;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0px 1px 13px #ffffff26;
@@ -47,8 +47,17 @@
     display: flex;
     align-items: center;
     padding-right: 1.6rem;
+    column-gap: 1rem;
 
     &__image {
+      border: 2px solid var(--btn-bg-color);
+      border-radius: 100px;
+      height: 6rem;
+      width: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       img {
         // max-width: 10rem !important;
         max-height: 7rem !important;
@@ -109,10 +118,10 @@
   nav > ul > li > a {
     font-family: Nunito;
     font-size: var(--font-p-text-3);
-    color: #bbbbbb;
+    color: #3f3f3f;
     display: flex;
     align-items: center;
-    padding: 0.3rem 1rem;
+    padding: 1.3rem 1rem;
 
     span {
       @media (max-width: 80em) {
@@ -136,13 +145,13 @@
 
   &_btn {
     width: 27.4rem;
-    height: 5rem;
+    // height: 4rem;
     border-radius: 6px;
     margin: 3.2rem 0;
-
+    padding: 1rem;
     font-family: 'Nunito';
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
 
     @media (max-width: 80em) {
@@ -176,11 +185,12 @@
       height: 5rem;
       width: 37.6rem;
       border-radius: 30px;
-      border: 1px solid #f5fcff;
+      border: 1px solid #dededf;
       padding-left: 6.1rem;
       font-weight: 500;
       font-size: 1.8rem;
-      color: #bbbbbb;
+      color: var(--font-text-dark);
+      outline: none;
       background-color: var(--main-bg-color);
     }
 
@@ -207,20 +217,23 @@
       p {
         font-weight: 400;
         font-size: 1.5rem;
-        color: #f5fcff;
+        color: var(--font-text-dark);
       }
     }
   }
 }
 
 .home {
+  border-left: 1px solid rgba(0, 0, 0, 0.02);
+  border-right: 1px solid rgba(0, 0, 0, 0.02);
+
   @media (max-width: 31.2em) {
-    margin-bottom: 10rem;
+    // margin-bottom: 10rem;
     // height: 100rem;
   }
   .heading {
     background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.02);
     backdrop-filter: blur(11px);
   }
   h2 {
@@ -234,13 +247,41 @@
   }
 
   &_main {
-    padding: 0.4rem 1rem;
+    padding: 1rem 1rem;
     background-color: var(--secondary-bg-color);
 
     @media (max-width: 31.2em) {
       padding: 0;
       background-color: var(--main-bg-color);
     }
+  }
+
+  .btn_upload {
+    position: relative;
+    display: flex;
+    column-gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    // padding: 3.5rem 0;
+    overflow: hidden;
+
+    background: #f3fff7;
+    // border: 1px dashed #81f9a4;
+    border-radius: 72px;
+    width: 100%;
+    margin-top: 3rem;
+
+    input[type='file'] {
+      cursor: pointer;
+      position: absolute;
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+
+  .images_prev_container {
+    display: flex;
+    column-gap: 2rem;
   }
 
   &_post {
@@ -258,10 +299,10 @@
       padding-bottom: 4.4rem;
 
       textarea {
-        font-weight: 200;
+        font-weight: 400;
         font-size: var(--font-p-text-1);
         padding-left: 2.4rem;
-        color: #bbbbbb;
+        color: var(--font-text-dark);
         overflow: hidden;
         resize: none;
         width: 100%;
@@ -287,6 +328,7 @@
         font-weight: 700;
         font-size: var(--font-p-text-1);
         text-align: center;
+        color: var(--font-text-white);
         background: var(--btn-bg-color);
         cursor: pointer;
       }
@@ -300,6 +342,7 @@
     padding: 2.2rem;
     display: flex;
     column-gap: 1.6rem;
+
     // flex-direction: column;
     @media (max-width: 31.2em) {
       margin: 0;
@@ -324,11 +367,13 @@
 
     &__post {
       color: #01012b;
+      // position: relative;
 
       &_username {
         h4 {
-          font-size: var(--font-p-text-2);
+          font-size: var(--font-p-text-1);
           font-weight: 600;
+          text-transform: capitalize;
         }
       }
 
@@ -341,11 +386,14 @@
 
       &_img {
         display: flex;
-        column-gap: 0.8rem;
-        padding-top: 0.8rem;
+        column-gap: 1.5rem;
+        width: 100%;
 
         img {
-          min-width: 40rem !important;
+          width: 40%;
+          margin-bottom: 2%;
+          background: var(--secondary-bg-color);
+          object-fit: contain;
         }
       }
 

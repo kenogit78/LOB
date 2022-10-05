@@ -1,278 +1,269 @@
 .error_toast {
-    font-size: 1.2rem;
-    background-color: rgba(255, 0, 0, 0.693);
-    color: #fff;
+  font-size: 1.2rem;
+  background-color: rgba(255, 0, 0, 0.693);
+  color: #fff;
 }
 .onboarding {
-    display: grid;
-    grid-template-columns: 46.3% auto;
+  display: grid;
+  grid-template-columns: 46.3% auto;
 }
 
 .login_container {
-    
+  width: 46.7rem;
+  margin-top: -4rem;
+  @media (max-width: 30.25em) {
+    width: 40.7rem;
+  }
+
+  @media (max-width: 46.88em) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .heading,
+  .heading_login {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    a {
+      font-family: Nunito;
+      font-size: 2.4rem;
+      color: #6b6b6b;
+    }
+    h1 {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3.2rem;
+      order: 2;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0rem;
+        top: 5rem;
+        min-width: 5.4rem;
+        border-radius: 10px;
+        border: 2px solid #131313;
+      }
+    }
+  }
+
+  .heading_login {
+    h1 {
+      order: 0;
+      &::before {
+        right: 3.5rem;
+      }
+    }
+  }
+
+  .login_input,
+  .login_input_button {
     width: 46.7rem;
-    margin-top: -4rem;
+    height: 5rem;
+    border: 1px solid #005678;
+    border-radius: 6px;
+    font-family: Nunito;
+
     @media (max-width: 30.25em) {
+      width: 40.7rem;
+    }
+  }
+
+  .login_input_group {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.8rem;
+    position: relative;
+
+    :invalid[focused='true'] ~ .errormessage {
+      display: block;
+    }
+
+    :invalid[focused='true'] {
+      border: 1px solid red;
+    }
+
+    label {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 1.6rem;
+      padding-bottom: 0.8rem;
+    }
+
+    input {
+      background: #fff;
+      font-size: 1.6rem;
+      font-family: Nunito;
+      padding: 2.2rem 3rem;
+
+      &:focus {
+        box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+      }
+    }
+
+    .remember {
+      font-size: 1.6rem;
+
+      a {
+        text-decoration-line: underline;
+        color: #05d9e8;
+      }
+    }
+
+    &__pass {
+      position: relative;
+    }
+    .show {
+      position: absolute;
+      right: 30px;
+      top: 45%;
+
+      @media (max-width: 23.43em) {
+        top: 55%;
+      }
+    }
+
+    .errormessage {
+      color: red;
+      font-size: 1.1rem;
+      padding-top: 0.08rem;
+      display: none;
+    }
+  }
+
+  .button_container {
+    position: relative;
+  }
+
+  .login_input_button,
+  .go_home {
+    background: #005678;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .login_google {
+    .login_google_btn {
+      width: 46.7rem;
+      height: 5.4rem;
+      background: #ffffff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      text-align: center;
+      color: #131313;
+
+      @media (max-width: 30.25em) {
         width: 40.7rem;
+      }
+    }
+  }
+
+  .divider {
+    color: #bababa;
+    position: relative;
+
+    p {
+      font-family: Nunito;
+      font-size: 2.4rem;
+      align-items: center;
+      text-align: center;
     }
 
-    @media (max-width: 46.88em) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 1;
+      top: 3.5rem;
+      min-width: 20rem;
+      border: 1px solid #f5f5f5;
+
+      @media (max-width: 30.25em) {
+        min-width: 14rem;
+      }
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      left: 26.5rem;
+      top: 3.5rem;
+      min-width: 20rem;
+      border: 1px solid #f5f5f5;
 
-    .heading, .heading_login {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 2.5rem;
-        
-        a {
-            font-family: Nunito;
-            font-size: 2.4rem;
-            color: #6B6B6B;
-        }
-        h1 {
-            font-family: Nunito;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 3.2rem;
-            order: 2;
-            position: relative;
-
-            &::before {
-                content: "";
-                position: absolute;
-                right: 0rem;
-                top: 5rem;
-                min-width: 5.4rem;
-                border-radius: 10px;
-                border: 2px solid #131313;
-            }
-        }
+      @media (max-width: 30.25em) {
+        min-width: 14rem;
+      }
     }
-
-    .heading_login {
-        h1 {
-            order: 0;
-            &::before {
-                right: 3.5rem;
-            }
-        }
-    }
-
-    .login_input, .login_input_button{
-        width: 46.7rem;
-        height: 5rem;
-        border: 1px solid #005678;
-        border-radius: 6px;
-        font-family: Nunito;
-        
-        @media (max-width: 30.25em) {
-            width: 40.7rem;
-        }
-    }
-
-
-    .login_input_group {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: .8rem;
-        position: relative;
-
-        :invalid[focused="true"] ~ .errormessage {
-            display: block;
-        }
-
-        :invalid[focused="true"] {
-            border: 1px solid red;
-        }
-        
-        label {
-            font-family: Nunito;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 1.6rem;
-            padding-bottom: .8rem;
-        }
-
-        input {
-            background: #fff;
-            font-size: 1.6rem;
-            font-family: Nunito;
-            padding: 2.2rem 3rem;
-            
-            &:focus {
-                box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
-            }
-        }
-
-        .remember {
-            font-size: 1.6rem;
-
-            a {
-                text-decoration-line: underline;
-                color: #05D9E8;
-
-            }
-        }
-
-        &__pass {
-            position: relative;
-            
-            
-        }
-        .show {
-            position: absolute;
-            right: 30px;
-            top: 45%;
-            
-            @media (max-width: 23.43em) {
-                top: 55%;
-            }
-        }
-
-        .errormessage {
-            color: red;
-            font-size: 1.1rem;
-            padding-top: .08rem;
-            display: none;
-        }
-    }
-
-    .button_container {
-        position: relative;
-    }
-
-    .login_input_button, .go_home {
-            background: #005678;
-            color: #fff;
-            font-size: 1.8rem;
-            cursor: pointer;
-            
-    }
-
-    .login_google {
-        .login_google_btn {
-            width: 46.7rem;
-            height: 5.4rem;
-            background: #FFFFFF;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
-            border-radius: 6px;
-            font-style: normal;
-            font-weight: 600;
-            font-size: 1.6rem;
-            line-height: 2.2rem;
-            text-align: center;
-            color: #131313;
-
-            @media (max-width: 30.25em) {
-                width: 40.7rem;
-            }
-        }
-    }
-    
-    .divider {
-        color: #BABABA;
-        position: relative;
-        
-        p { 
-            font-family: Nunito;
-            font-size: 2.4rem;
-            align-items: center;
-            text-align: center;
-        }
-        
-        &::after {
-            content: "";
-            position: absolute;
-            left: 1;
-            top: 3.5rem;
-            min-width: 20rem;
-            border: 1px solid #F5F5F5;
-            
-            @media (max-width: 30.25em) {
-                min-width: 14rem;
-            }
-        }
-        
-        &::before {
-            content: "";
-            position: absolute;
-            left: 26.5rem;
-            top: 3.5rem;
-            min-width: 20rem;
-            border: 1px solid #F5F5F5;
-
-            @media (max-width: 30.25em) {
-                min-width: 14rem;
-            }
-        }
-
-    }
+  }
 }
 
 .verify_container {
+  @media (max-width: 30.43em) {
+    padding: 0 3rem;
+  }
 
-    @media (max-width: 30.43em) {
-        padding: 0 3rem;
+  .verify_back {
+    color: #8692a6;
+    a {
+      margin-bottom: -5px;
+      margin-left: 10px;
+      font-size: 1.6rem;
+    }
+  }
+
+  .verify_details {
+    width: 49.448rem;
+
+    h1 {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3.2rem;
+      line-height: 4.4rem;
+      text-align: center;
+      color: #131313;
+    }
+
+    .verify_p {
+      p {
+        font-family: 'Nunito';
+
+        font-size: 2.4rem;
+        line-height: 3.3rem;
+        color: #252525;
       }
-      
-    .verify_back {
-        color: #8692A6;
-        a {
-            margin-bottom: -5px;
-            margin-left: 10px;
-            font-size: 1.6rem;
-        }
-    }
-    
-    .verify_details {
-        
-        width: 49.448rem;
-
-        h1 {
-            font-style: normal;
-            font-weight: bold;
-            font-size: 3.2rem;
-            line-height: 4.4rem;
-            text-align: center;
-            color: #131313;
-        } 
-
-        .verify_p {
-
-            p {
-                font-family: "Nunito";
-
-                font-size: 2.4rem;
-                line-height: 3.3rem;                                
-                color: #252525;
-            }
-                
-        }
-
-        .verify_image {
-            margin-top: 3.6rem;
-            object-fit: contain;
-            width: 50%;
-        }
     }
 
-    .go_home {
-        width: 49.448rem;
-        height: 5.4rem;
-        background: #005678;
-        border-radius: 6px;
-        padding: 1.4rem 18.3rem;
-        color: #fff;
-        font-weight: 700;
-        font-size: 1.8rem;
-        line-height: 25px;
-        display: flex;
-        align-items: center;
-        text-align: center;
+    .verify_image {
+      margin-top: 3.6rem;
+      object-fit: contain;
+      width: 50%;
     }
+  }
+
+  .go_home {
+    width: 49.448rem;
+    height: 5.4rem;
+    background: #005678;
+    border-radius: 6px;
+    padding: 1.4rem 18.3rem;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 25px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 }

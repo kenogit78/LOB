@@ -1,27 +1,32 @@
 .bottom_nav {
-    position: relative;
+  position: relative;
 
-    nav {
+  nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
 
-        ul {
-            display: flex;
-            justify-content: space-between;
+      li {
+        a {
+          color: #fff;
         }
+      }
     }
+  }
 
-    &_links {
-        display: flex;
-        column-gap: 5.3rem;
-    }
+  &_links {
+    display: flex;
+    column-gap: 7rem;
+  }
 }
 
 .addpost {
-    position: absolute;
-    left: 45%;
-    top: -110%;
-    
-    @media (max-width: 23.39em) {
-        left: 43%;
-        top: -100%;
-    }
+  position: absolute;
+  left: 45%;
+  top: -110%;
+
+  @media (max-width: 23.39em) {
+    left: 43%;
+    top: -100%;
+  }
 }
