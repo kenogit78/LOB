@@ -175,11 +175,11 @@ export default function UserModal({ visible, setVisible }) {
 
     //With credentials is used to set the cookies in browser
     axios
-      .get('https://league-of-billions.up.railway.app/auth/logout', {
+      .get('http://localhost:8000/auth/logout', {
         withCredentials: true,
       })
       .then((res) => {});
-    router.push('/login');
+    // router.push('/login');
   };
 
   return (

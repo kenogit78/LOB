@@ -21,6 +21,7 @@ import { signup, reset } from './../../auth/authSlice';
 import FormInput from './FormInput';
 import { useSignupMutation } from '../../auth/authApiSlice';
 import axios from 'axios';
+import LoaderSmall from '../LoaderSmall';
 
 function Signup() {
   //Form data state
@@ -239,7 +240,7 @@ function Signup() {
             className={`${styles.login_input_button}`}
             disabled={signLoading ? true : false}
           />
-          {signLoading ? <Loader /> : null}
+          {signLoading ? <LoaderSmall /> : null}
         </div>
         {/* <div className={`${styles.divider} py-6`}>
           <p>or</p>

@@ -15,6 +15,7 @@ import {
 import { logout } from '../../auth/authSlice';
 import { useRouter } from 'next/router';
 import Loader from '../misc/Loader';
+import LoaderSmall from '../LoaderSmall';
 
 //Toastify
 import { toast, Toaster } from 'react-hot-toast';
@@ -169,7 +170,7 @@ function Login() {
             value="Sign in"
             className={`${styles.login_input_button}`}
           />
-          {isLoading ? <Loader /> : null}
+          {isLoading ? <LoaderSmall /> : null}
         </div>
         {/* <div className={`${styles.divider} py-6`}>
           <p>or</p>
