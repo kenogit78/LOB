@@ -27,7 +27,9 @@ const MyApp = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest);
   return (
     <Provider store={store}>
-      <Component {...props.pageProps} />
+      <NextUIProvider>
+        <Component {...props.pageProps} />
+      </NextUIProvider>
     </Provider>
   );
 };

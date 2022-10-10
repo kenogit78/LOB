@@ -37,10 +37,14 @@ const Sidebar = () => {
     e.preventDefault();
     // dispatch(logout());
     // dispatch(reset());
+
+    //With credentials is used to set the cookies in browser
     axios
-      .get('https://league-of-billions.up.railway.app/auth/logout')
+      .get('https://league-of-billions.up.railway.app/auth/logout', {
+        withCredentials: true,
+      })
       .then((res) => {});
-    // router.push('/login');
+    router.push('/login');
   };
 
   const purge = () => {

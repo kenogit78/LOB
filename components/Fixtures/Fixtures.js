@@ -1,18 +1,17 @@
-import React from 'react'
-import styles from './Fixtures.module.scss'
+import React from 'react';
+import styles from './Fixtures.module.scss';
 import Image from 'next/image';
 
-import Chelsea_FC from '../../assets/Chelsea_FC.png'
-import FC_Barcelona from '../../assets/FC_Barcelona.png'
-
+import Chelsea_FC from '../../assets/Chelsea_FC.png';
+import FC_Barcelona from '../../assets/FC_Barcelona.png';
 
 const Fixtures = () => {
   return (
     <div className={styles.fixtures}>
       <div className={styles.fixtures__heading}>
-        <h2>Match Fixtures</h2>
+        <h2>Coming Soon</h2>
       </div>
-      <div className={styles.fixtures_container}>
+      {/* <div className={styles.fixtures_container}>
         <div className={styles.fixturebox}>
           <div className={styles.fixturebox__teams}>
             <div className={styles.fixturebox__hometeam}>
@@ -123,9 +122,9 @@ const Fixtures = () => {
             <p>1 Lukaku</p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
-  )
-}
+  );
+};
 
-export default Fixtures
+export default Fixtures;

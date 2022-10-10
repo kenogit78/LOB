@@ -2,8 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { setCredentials, logOut } from './authSlice';
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: 'https://league-of-billions.up.railway.app/',
-  // baseUrl: 'https://league-of-billions.up.railway.app/',
+  // baseUrl: 'http://localhost:8000/', Local
   baseUrl: 'https://league-of-billions.up.railway.app/',
   credentials: 'include',
   prepareHeaders: async (headers, { getState }) => {
@@ -11,7 +10,8 @@ const baseQuery = fetchBaseQuery({
     if (token) {
       headers.set('authorization', `Bearer ${token}`);
       // headers.set('Content-Type', 'multipart/form-data');
-      // headers.set('Accept', 'multipart/form-data');
+      headers.set('Access-Control-Allow-Credentials', true);
+      headers.set('Accept', 'multipart/form-data');
     }
     return headers;
   },

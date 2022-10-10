@@ -24,6 +24,7 @@
   @media (max-width: 31.2em) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    padding: 0 3rem;
   }
 
   .logo {
@@ -50,7 +51,7 @@
     column-gap: 1rem;
 
     &__image {
-      border: 2px solid var(--btn-bg-color);
+      // border: 2px solid var(--btn-bg-color);
       border-radius: 100px;
       height: 6rem;
       width: 6rem;
@@ -249,6 +250,7 @@
   &_main {
     padding: 1rem 1rem;
     background-color: var(--secondary-bg-color);
+    height: 100%;
 
     @media (max-width: 31.2em) {
       padding: 0;
@@ -288,6 +290,10 @@
     padding: 2.2rem;
     background: var(--main-bg-color);
     border-radius: 10px;
+
+    &__avatar {
+      width: 20%;
+    }
 
     @media (max-width: 31.2em) {
       display: none;
@@ -354,9 +360,13 @@
       background-color: #fff;
       align-self: flex-start;
       border-radius: 48px;
-      padding: 0.5rem;
+      // padding: 0.5rem;
       img {
-        max-width: 7rem !important;
+        // max-width: 7rem !important;
+        border-radius: 48px;
+        height: 5rem;
+        width: 5rem;
+        object-fit: cover;
       }
     }
 
@@ -403,6 +413,19 @@
         column-gap: 3rem;
         padding-top: 0.8rem;
       }
+    }
+  }
+
+  .submit_btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    input {
+    }
+
+    &__load {
+      position: absolute;
+      right: 5px;
     }
   }
 }

@@ -24,7 +24,7 @@ const ProtectedHOC = (WrappedComponent) => {
     //   try {
     //     const refreshData = () =>
     //       axios
-    //         .get('https://league-of-billions.up.railway.app/auth/refresh', {
+    //         .get('http://localhost:8000/auth/refresh', {
     //           withCredentials: true,
     //         })
     //         .then((res) => {

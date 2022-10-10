@@ -17,6 +17,7 @@ import { useEffect } from 'react';
 
 import { useDeletePostMutation } from '../../post/postApiSlice';
 import { RiDeleteBin3Line, RiHeartsFill, RiHeartsLine } from 'react-icons/ri';
+import { toast, Toaster } from 'react-hot-toast';
 
 const Post = ({ posts, user, token }) => {
   const [liked, setLiked] = useState(false);
@@ -53,6 +54,7 @@ const Post = ({ posts, user, token }) => {
   const deleteAPost = async (e) => {
     try {
       await deletePost(posts?._id).unwrap();
+      toast.success('Post deleted');
     } catch (err) {
       console.error('Failed to delete the post: ', err);
     }
@@ -62,7 +64,7 @@ const Post = ({ posts, user, token }) => {
   //   try {
   //     await axios
   //       .delete(
-  //         `https://league-of-billions.up.railway.app/api/post/${posts._id}`,
+  //         `http://localhost:8000/api/post/${posts._id}`,
   //         {
   //           headers: {
   //             'Content-Type': 'application/json',
@@ -81,16 +83,21 @@ const Post = ({ posts, user, token }) => {
 
   return (
     <div className={styles.post}>
+      {/* <Toaster /> */}
       {/* {posts?.map((post) => {
         return ( */}
       <div key={posts._id} className={styles.home_feeds}>
         <div className={styles.home_feeds__user_img}>
-          <Image src={defaultImg} />
+          {posts?.user?.photo === 'default.jpg' ? (
+            <Image src={defaultImg} />
+          ) : (
+            <img src={posts?.user?.photo} />
+          )}
         </div>
         <div className={styles.home_feeds_container}>
           <div className={styles.home_feeds__post}>
             <div className={styles.home_feeds__post_username}>
-              <h4>{posts?.userId}</h4>
+              <h4>{posts?.user?.username}</h4>
             </div>
             <div className={styles.home_feeds__post_text}>
               <p>{posts.desc}</p>
@@ -132,7 +139,7 @@ const Post = ({ posts, user, token }) => {
               alt="comment"
               onClick={() => setOpenModal(true)}
             /> */}
-            {user?.id == posts?.userId ? (
+            {user?.id == posts?.user?.id ? (
               <div
                 className={`cursor-pointer ${styles.delete}`}
                 onClick={deleteAPost}

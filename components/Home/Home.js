@@ -3,6 +3,7 @@ import Header from './Header';
 import styles from '../compStyles/Home.module.scss';
 import Image from 'next/image';
 
+import defaultImg from '../../assets/default.png';
 import image from '../../assets/image.svg';
 import video from '../../assets/video.svg';
 import mic from '../../assets/mic.svg';
@@ -24,7 +25,7 @@ import { useAddNewPostMutation } from '../../post/postApiSlice';
 import axios from 'axios';
 
 // Toastify
-import { toast, ToastContainer } from 'react-toastify';
+// import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   selectCurrentToken,
@@ -37,6 +38,8 @@ import Post from './Post';
 import Loader from '../misc/Loader';
 import { Router } from 'react-router-dom';
 import { useRouter } from 'next/router';
+import { Loading } from '@nextui-org/react';
+import { toast, Toaster } from 'react-hot-toast';
 
 const Home = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -59,7 +62,7 @@ const Home = () => {
 
   // console.log(imageUpload);
 
-  // console.log(token);
+  // console.log(isLoading);
 
   // Make Post Function
   const handleNewPost = async (e) => {
@@ -81,27 +84,21 @@ const Home = () => {
     };
 
     formData.append('desc', desc);
-    formData.append('userId', user?.id);
+    formData.append('user', user?.id);
     formData.append('img', img[0]);
     img.length == 2 ? formData.append('img', img[1]) : null;
+
     // img.length == 3 ? formData.append('img', img[2]) : null;
 
     if (canSave) {
       try {
         await addNewPost(formData).unwrap();
 
-        // axios.post('https://league-of-billions.up.railway.app/api/post/new', data, {
-        //   headers: {
-        //     authorization: `Bearer ${token}`,
-        //     Accept: 'application/json',
-        //     // 'Content-Type': 'multipart/form-data',
-        //   },
-        // });
-
-        // console.log(img, 'img');
         setDesc('');
         setImg([]);
         setSelectedImages([]);
+        toast.success('Post added successfully');
+        console.log('Post added successfully');
       } catch (err) {
         console.error('Failed to save the post: ', err);
       }
@@ -147,14 +144,16 @@ const Home = () => {
 
         console.log(err);
       });
-    // console.log(refreshData);
-    // } catch (err) {
-    //   console.log(err);
-    // }
   }, []);
 
-  const { data: post, isError, isSuccess } = useGetPostQuery();
+  const {
+    data: post,
+    isError,
+    isSuccess,
+    isLoading: postLoading,
+  } = useGetPostQuery();
 
+  // console.log(postLoading);
   const posts = post?.data.data;
 
   /* FUNCTION FOR PREVIEWING IMAGES */
@@ -180,33 +179,27 @@ const Home = () => {
     URL.revokeObjectURL(image);
   };
 
-  // const onSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const postData = {
-  //     userId,
-  //     desc,
-  //   };
-  //   dispatch(createPost(postData));
-
-  //   setDesc('');
-  // };
-
-  // const like = (e) => {
-  //   console.log(e.target);
-  //   setLiked(!liked);
-  // };
+  // Reverse Post Array
+  const reversedPost = posts?.slice().reverse();
 
   useEffect(() => {
     const body = document.querySelector('body');
     body.style.overflow = openModal ? 'hidden' : 'auto';
   }, [openModal]);
+
+  // console.log(user);
   if (loading) return <Loader />;
   return (
     <div className={styles.home}>
-      {openModal && <Modal closeModal={setOpenModal} />}
+      <Toaster />
+      {openModal && (
+        <div className="m-10">
+          <Modal closeModal={setOpenModal} />
+        </div>
+      )}
 
       <div className={styles.heading}>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
         <h2>Home</h2>
       </div>
       <div className={styles.home_main}>
@@ -214,7 +207,12 @@ const Home = () => {
           <form onSubmit={handleNewPost}>
             <div className={styles.home_post__input}>
               <div className={styles.home_post__avatar}>
-                <Image src={avatar} alt="avatar" />
+                {/* <img src={user.photo} alt="avatar" /> */}
+                {user?.photo === 'default.jpg' ? (
+                  <Image src={defaultImg} />
+                ) : (
+                  <img src={user?.photo} />
+                )}
               </div>
               <textarea
                 rows={1}
@@ -244,7 +242,16 @@ const Home = () => {
                 </div>
                 {/* <Image src={mic} alt="mic" /> */}
               </div>
-              <input type="submit" />
+              <div className={styles.submit_btn}>
+                <input
+                  type="submit"
+                  style={{ opacity: !canSave ? 0.5 : 1 }}
+                  disabled={!canSave == true ? true : false}
+                />
+                <div className={styles.submit_btn__load}>
+                  {isLoading ? <Loading color="warning" /> : ''}
+                </div>
+              </div>
             </div>
             <div className={styles.images_prev_container}>
               {selectedImages &&
@@ -271,9 +278,22 @@ const Home = () => {
             ) : null}
           </form>
         </div>
-        {posts?.map((post) => {
-          return <Post key={post._id} posts={post} user={user} token={token} />;
-        })}
+        {postLoading ? (
+          <div className="flex justify-center pt-36 h-screen">
+            <Loading
+              type="default"
+              size="xl"
+              color="secondary"
+              loadingCss={{ $$loadingSize: '7rem', $$loadingBorder: '5px' }}
+            />
+          </div>
+        ) : (
+          reversedPost?.map((post) => {
+            return (
+              <Post key={post._id} posts={post} user={user} token={token} />
+            );
+          })
+        )}
       </div>
       <div className={styles.sidebar_bottom}>
         <BottomNav setOpenModal={setOpenModal} />

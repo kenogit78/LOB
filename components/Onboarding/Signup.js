@@ -3,7 +3,8 @@ import styles from '../compStyles/Onboarding.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
 import google_img from '../../assets/google.png';
-import Loader from './../Loader';
+import Loader from '../misc/Loader';
+import { toast, Toaster } from 'react-hot-toast';
 
 //Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,13 +13,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
 
 //Toast
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 //Auth
 import { signup, reset } from './../../auth/authSlice';
 import FormInput from './FormInput';
 import { useSignupMutation } from '../../auth/authApiSlice';
+import axios from 'axios';
 
 function Signup() {
   //Form data state
@@ -43,7 +45,11 @@ function Signup() {
   const dispatch = useDispatch();
 
   // signup api from rtk query
-  const [signup] = useSignupMutation();
+  const [signup, { isError: signError, isLoading: signLoading }] =
+    useSignupMutation();
+
+  //Loading State
+  const [loading, setLoading] = useState(true);
 
   // Selector Initialization to get states from redux
   const { user, isLoading, isError, isSuccess, message } = useSelector(
@@ -104,10 +110,13 @@ function Signup() {
 
     try {
       const signupData = await signup(userData).unwrap();
-      // console.log(signupData);
+      console.log(signupData);
       router.push('/verifiedpage');
       dispatch(setCredentials({ ...signupData, userData }));
-    } catch (err) {}
+    } catch (err) {
+      toast.error(err.data.message);
+      // console.log(err);
+    }
   };
 
   const handleShowPassword = () => {
@@ -120,7 +129,22 @@ function Signup() {
     setChecked(!checked);
   };
 
-  // console.log(checked);
+  //USE EFFECT TO REDIRECT TO HOME IF USER IS LOGGED IN
+  useEffect(() => {
+    const refreshData = axios
+      .get('https://league-of-billions.up.railway.app/auth/refresh', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        router.push('/homepage');
+        // dispatch(setCredentials({ ...res.data }));
+        // setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  }, []);
 
   const inputs = [
     {
@@ -173,6 +197,8 @@ function Signup() {
     },
   ];
 
+  if (loading) return <Loader />;
+
   return (
     <div className={`${styles.login_container}`}>
       <div className={styles.heading}>
@@ -211,14 +237,15 @@ function Signup() {
             type="submit"
             value="Register Account"
             className={`${styles.login_input_button}`}
+            disabled={signLoading ? true : false}
           />
-          {isLoading ? <Loader /> : null}
+          {signLoading ? <Loader /> : null}
         </div>
         {/* <div className={`${styles.divider} py-6`}>
           <p>or</p>
         </div> */}
       </form>
-      <ToastContainer />
+      <Toaster />
       {/* <div className={`${styles.login_google}`}>
             <button className={`${styles.login_google_btn} flex pl-28 items-center`}><Image src={google_img} alt="google logo"/><span className='pl-28'>Sign in using Google</span></button>
           </div> */}

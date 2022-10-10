@@ -7,6 +7,8 @@ import defaultImg from '../../assets/default.png';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../auth/authSlice';
+import UserModal from '../misc/UserModal';
+import { Button } from '@nextui-org/react';
 
 const Header = () => {
   const [fix, setFix] = useState(false);
@@ -23,9 +25,12 @@ const Header = () => {
   console.log(user);
   // window.addEventListener("scroll", setFixed)
 
-  const openModal = () => {
-    console.log('open modal');
-  };
+  // const openModal = () => {
+  //   console.log('open modal');
+  // };
+
+  const [visible, setVisible] = useState(false);
+  const openModal = () => setVisible(true);
 
   return (
     <div className={styles.header_container}>
@@ -39,10 +44,24 @@ const Header = () => {
             <Image src={Bell} alt="user image" />
           </div> */}
           <div className={`text-[1.4rem] capitalize ${styles.user_info}`}>
-            <p className="text-[#7d7abc] font-bold">{user?.username}</p>
-            <div className={styles.user_info__image} onClick={openModal}>
-              <Image src={defaultImg} alt="user image" />
+            <UserModal visible={visible} setVisible={setVisible} />
+
+            <p className="text-[#7d7abc] text-[2rem] font-bold">
+              {user?.username}
+            </p>
+            <div
+              className={`cursor-pointer ${styles.user_info__image}`}
+              onClick={openModal}
+            >
+              {user?.photo === 'default.jpg' ? (
+                <Image src={defaultImg} />
+              ) : (
+                <img src={user?.photo} />
+              )}
             </div>
+            {/* <Button auto color="warning" shadow onClick={handler}>
+              Open modal
+            </Button> */}
           </div>
         </div>
       </div>

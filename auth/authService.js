@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://league-of-billions.up.railway.app/auth/';
+const API_URL = 'http://localhost:8000/auth/';
 
 //Signup
 const signup = async (userData) => {

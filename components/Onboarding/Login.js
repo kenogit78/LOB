@@ -14,16 +14,17 @@ import {
 
 import { logout } from '../../auth/authSlice';
 import { useRouter } from 'next/router';
-import Loader from '../Loader';
+import Loader from '../misc/Loader';
 
 //Toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLoginMutation } from '../../auth/authApiSlice';
 import axios from 'axios';
 
 function Login() {
   const [showPassword, setShowPassword] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -73,8 +74,29 @@ function Login() {
       const loginData = await login(userData).unwrap();
       dispatch(setCredentials({ ...loginData, userData }));
       router.push('/homepage');
-    } catch (err) {}
+    } catch (err) {
+      toast.error(err.data.message);
+      // console.log(err);
+    }
   };
+
+  //USE EFFECT TO REDIRECT TO HOME IF USER IS LOGGED IN
+  useEffect(() => {
+    const refreshData = axios
+      .get('https://league-of-billions.up.railway.app/auth/refresh', {
+        withCredentials: true,
+      })
+      .then((res) => {
+        dispatch(setCredentials({ ...res.data }));
+        // setLoading(false);
+        router.push('/homepage');
+      })
+      .catch((err) => {
+        setLoading(false);
+
+        console.log(err);
+      });
+  }, []);
 
   const onLogout = async (e) => {
     e.preventDefault();
@@ -85,7 +107,7 @@ function Login() {
         withCredentials: true,
       })
       .then((res) => {});
-    // router.push('/login');
+    router.push('/login');
   };
 
   const onChange = (e) => {
@@ -96,6 +118,10 @@ function Login() {
   };
 
   const { email, password } = formData;
+
+  console.log(loading);
+
+  if (loading) return <Loader />;
 
   return (
     <div className={`${styles.login_container}`}>
@@ -145,11 +171,11 @@ function Login() {
           />
           {isLoading ? <Loader /> : null}
         </div>
-        <div className={`${styles.divider} py-6`}>
+        {/* <div className={`${styles.divider} py-6`}>
           <p>or</p>
-        </div>
+        </div> */}
       </form>
-      <div className={`${styles.login_google}`}>
+      {/* <div className={`${styles.login_google}`}>
         <button
           className={`${styles.login_google_btn} flex pl-28 items-center`}
           onClick={onLogout}
@@ -157,8 +183,8 @@ function Login() {
           <Image src={google_img} alt="google logo" />
           <span className="pl-28">Sign in using Google</span>
         </button>
-      </div>
-      <ToastContainer />
+      </div> */}
+      <Toaster />
     </div>
   );
 }

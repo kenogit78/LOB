@@ -1,6 +1,7 @@
 .onboarding {
   display: grid;
   grid-template-columns: 46.3% auto;
+  align-items: center;
 
   @media (max-width: 46.88em) {
     // grid-template-columns: 100%;
@@ -12,7 +13,7 @@
   .onboarding__right {
     max-width: 46rem;
     padding-left: 9rem;
-    padding-top: 10rem;
+    // padding-top: 10rem;
 
     @media (max-width: 46.88em) {
       align-items: start;

@@ -1,119 +1,113 @@
 .fixtures {
-    // padding: 0 1rem;
+  // padding: 0 1rem;
 
-        @media (max-width: 31.2em) {
-            padding: 0;
-            background-color: var(--main-bg-color);
-        }
-    &__heading {
-        background-color: rgb(9 9 48);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(11px);
+  @media (max-width: 31.2em) {
+    padding: 0;
+    background-color: var(--main-bg-color);
+  }
+  &__heading {
+    // background-color: rgb(9 9 48);
+    // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(11px);
 
-        h2 {
-        padding: 1.6rem 1.5rem 2.2rem;
+    h2 {
+      padding: 1.6rem 1.5rem 2.2rem;
+      font-weight: 600;
+      font-size: var(--font-p-text-3);
+
+      @media (max-width: 31.2em) {
+        display: none;
+      }
+    }
+  }
+
+  &_container {
+    padding: 1.4rem 2.2rem;
+    background: var(--main-bg-color);
+    border-radius: 10px;
+    margin: 1rem;
+
+    @media (max-width: 31.2em) {
+      margin: 0;
+    }
+
+    @media (max-width: 31.2em) {
+      padding: 1.4rem 0;
+      border-radius: 0;
+    }
+  }
+
+  .fixturebox {
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    padding: 1.4rem 2rem 1.4rem 2.4rem;
+    // padding: 1.4rem 2.4rem;
+    display: flex;
+    // justify-content: space-between;
+    margin: 0.8rem 0;
+
+    @media (max-width: 31.2em) {
+      background-color: var(--main-bg-color);
+      border-radius: 0 0 10px 10px;
+      border-bottom: #f5fcff1a solid 1px;
+    }
+
+    &__teams {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 70%;
+    }
+    position: relative;
+
+    &__scorers {
+      position: relative;
+      padding-left: 2rem;
+      margin-left: 1rem;
+
+      p {
+        font-size: 1.4rem;
+      }
+
+      &::before {
+        position: absolute;
+        margin-left: -1rem;
+        content: '';
+        height: 12.5rem;
+        // left: 382px;
+        top: -0.9rem;
+
+        border: 0.8px solid rgba(0, 86, 120, 0.16);
+      }
+    }
+
+    &__scores {
+      color: #005678;
+
+      h4 {
         font-weight: 600;
-        font-size: var(--font-p-text-3);
+        font-size: 2.4rem;
+        text-align: center;
+      }
 
-        @media (max-width: 31.2em) {
-            display: none;
-            }
-        }   
+      p {
+        background: #fff;
+        text-align: center;
+        padding: 0.22rem 1.3rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: #005678;
+      }
     }
 
-    &_container {
-        padding: 1.4rem 2.2rem;
-        background: var(--main-bg-color);
-        border-radius: 10px;
-        margin: 1rem;
-
-        @media (max-width: 31.2em) {
-            margin: 0;
-            }
-
-
-            @media (max-width: 31.2em) {
-                padding: 1.4rem 0;
-                border-radius: 0;
-
-            }
-
+    &__hometeam,
+    &__awayteam {
+      text-align: center;
+      p {
+        font-weight: 600;
+        font-size: 2.4rem;
+      }
     }
-
-    .fixturebox {
-        background-color: var(--secondary-bg-color);
-        border-radius: 10px;
-        padding: 1.4rem 2rem 1.4rem 2.4rem;
-        // padding: 1.4rem 2.4rem;
-        display: flex;
-        // justify-content: space-between;
-        margin: .8rem 0;
-
-        @media (max-width: 31.2em) {
-            background-color: var(--main-bg-color);
-            border-radius: 0 0 10px 10px;
-            border-bottom: #f5fcff1a solid 1px;
-        }
-
-        &__teams {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 70%;
-
-        }
-        position: relative;
-        
-        &__scorers {
-            position: relative;
-            padding-left: 2rem;
-            margin-left: 1rem;
-            
-            p {
-                font-size: 1.4rem;
-
-            }
-
-            &::before {
-                position: absolute;
-                margin-left: -1rem;
-                content: "";
-                height: 12.5rem;
-                // left: 382px;
-                top: -.9rem;
-
-                border: .8px solid rgba(0, 86, 120, 0.16);
-
-            }
-        }
-
-        &__scores {
-            color: #005678;
-
-            h4 {
-                font-weight: 600;
-                font-size: 2.4rem;
-                text-align: center;
-            }
-
-            p {
-                background: #fff;
-                text-align: center;
-                padding: .22rem 1.3rem;
-                border-radius: 6px;
-                font-weight: 700;
-                font-size: 1.8rem;
-                color: #005678;
-            }
-        }
-
-        &__hometeam, &__awayteam {
-            text-align: center;
-            p {
-                font-weight: 600;
-                font-size: 2.4rem;
-
-            }
-        }
-    }
+  }
 }
