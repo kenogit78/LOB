@@ -58,7 +58,7 @@ const Modal = ({ closeModal }) => {
     };
 
     formData.append('desc', desc);
-    formData.append('userId', user?.id);
+    formData.append('user', user?.id);
     formData.append('img', img[0]);
     img.length == 2 ? formData.append('img', img[1]) : null;
     // img.length == 3 ? formData.append('img', img[2]) : null;
