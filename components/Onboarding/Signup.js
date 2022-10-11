@@ -112,7 +112,7 @@ function Signup() {
     try {
       const signupData = await signup(userData).unwrap();
       console.log(signupData);
-      router.push('/verifiedpage');
+      router.push('/homepage');
       dispatch(setCredentials({ ...signupData, userData }));
     } catch (err) {
       toast.error(err.data.message);
@@ -218,9 +218,9 @@ function Signup() {
             />
           ))}
           <div
-            className={`${styles.remember} flex justify-between items-center pt-4`}
+            className={`${styles.remember} flex justify-between items-center py-6`}
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-x-3.5">
               <input
                 type="checkbox"
                 name="agree"

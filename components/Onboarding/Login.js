@@ -76,7 +76,7 @@ function Login() {
       dispatch(setCredentials({ ...loginData, userData }));
       router.push('/homepage');
     } catch (err) {
-      toast.error(err.data.message);
+      toast.error(err?.data?.message);
       // console.log(err);
     }
   };
@@ -155,9 +155,9 @@ function Login() {
             className={`${styles.login_input}`}
           />
           <div
-            className={`${styles.remember} flex justify-between items-center pt-4`}
+            className={`${styles.remember} flex justify-between items-center py-6`}
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-x-3.5">
               <input type="checkbox" name="" id="" />
               <span className="pl-4">Remember Me</span>
             </div>

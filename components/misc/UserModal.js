@@ -185,7 +185,7 @@ export default function UserModal({ visible, setVisible }) {
         withCredentials: true,
       })
       .then((res) => {});
-    router.push('/login');
+    // router.push('/login');
   };
 
   return (

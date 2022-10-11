@@ -10,7 +10,7 @@
 
 .login_container {
   width: 46.7rem;
-  margin-top: -4rem;
+  // margin-top: -4rem;
   @media (max-width: 30.25em) {
     width: 40.7rem;
   }
@@ -78,8 +78,8 @@
   .login_input_group {
     display: flex;
     flex-direction: column;
-    padding-bottom: 0.8rem;
     position: relative;
+    margin-top: 3.4rem;
 
     :invalid[focused='true'] ~ .errormessage {
       display: block;
@@ -123,7 +123,7 @@
     .show {
       position: absolute;
       right: 30px;
-      top: 45%;
+      top: 60%;
 
       @media (max-width: 23.43em) {
         top: 55%;
