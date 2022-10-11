@@ -23,8 +23,8 @@ const Verified = () => {
         <div className={`${styles.verify_p}`}>
           <p className="mb-4 font-bold">Your account is verified</p>
           <p className="mb-12">
-            You are now a member. You can now begin to enjoy the seamless chat,
-            bant, and interaction with other players{' '}
+            You are now a member of Leagueof Billions. You can now begin to
+            enjoy the seamless chat, bant, and interaction with other players{' '}
           </p>
         </div>
       </div>
