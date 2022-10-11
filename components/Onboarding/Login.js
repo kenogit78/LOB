@@ -132,11 +132,11 @@ function Login() {
       </div>
       <form onSubmit={onSubmit}>
         <div className={`${styles.login_input_group}`}>
-          <label htmlFor="email">Username or email address</label>
+          <label htmlFor="email">Email address</label>
           <input
-            type="text"
+            type="email"
             id="email"
-            placeholder="Enter Username or Email"
+            placeholder="Enter Email"
             name="email"
             value={email}
             onChange={onChange}
