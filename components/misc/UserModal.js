@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Modal, Input, Row, Checkbox, Button, Text } from '@nextui-org/react';
 import styles from './Styles.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentToken } from '../../auth/authSlice';
+import { selectCurrentToken, selectCurrentUser } from '../../auth/authSlice';
 import { useAddNewPostMutation } from '../../post/postApiSlice';
 import image from '../../assets/image.svg';
 import camera from '../../public/camera.png';
@@ -26,8 +26,8 @@ export default function UserModal({ visible, setVisible }) {
   const [imageUpload, setImageUpload] = useState(user?.photo);
   const [img, setImg] = useState([]);
   const [formDetails, setFormDetails] = useState({
-    username: user?.username,
-    fplteam: user?.fplteam,
+    username: '',
+    fplteam: '',
   });
 
   const dispatch = useDispatch();
@@ -38,7 +38,15 @@ export default function UserModal({ visible, setVisible }) {
 
   const userId = user?.id;
 
-  // console.log(userId);
+  // console.log(user1);
+
+  useEffect(() => {
+    setFormDetails({
+      username: user?.username,
+      fplteam: user?.fplteam,
+    });
+    console.log('game');
+  }, [user]);
 
   // MAKE POST
   //   const onSubmit = async (e) => {
@@ -96,7 +104,7 @@ export default function UserModal({ visible, setVisible }) {
     e.target.value = '';
   }, []);
 
-  console.log(imageUpload);
+  // console.log(imageUpload);
   //DELETE IMAGE
   const deleteImage = (image) => {
     setSelectedImages(selectedImages.filter((e) => e !== image));
@@ -158,10 +166,8 @@ export default function UserModal({ visible, setVisible }) {
 
         setVisible(false);
         setFormDetails({
-          formDetails: {
-            username: '',
-            fplteam: '',
-          },
+          username: '',
+          fplteam: '',
         });
       } catch (err) {}
     }
@@ -251,9 +257,9 @@ export default function UserModal({ visible, setVisible }) {
               {/* {isLoading ? <Loader /> : null} */}
             </div>
           </form>
-          <div class="relative flex py-5 items-center">
-            <div class="flex-grow border-t border-gray-400"></div>
-            <div class="flex-grow border-t border-gray-400"></div>
+          <div className="relative flex py-5 items-center">
+            <div className="flex-grow border-t border-gray-400"></div>
+            <div className="flex-grow border-t border-gray-400"></div>
           </div>
           <div className={styles.button_container}>
             <input

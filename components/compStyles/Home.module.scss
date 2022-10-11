@@ -61,7 +61,11 @@
 
       img {
         // max-width: 10rem !important;
-        max-height: 7rem !important;
+        // max-height: 7rem !important;
+        border-radius: 48px;
+        height: 6rem;
+        width: 6rem;
+        object-fit: cover;
       }
       @media (max-width: 40.43em) {
         width: 80%;
@@ -294,6 +298,13 @@
 
     &__avatar {
       width: 20%;
+
+      img {
+        border-radius: 48px;
+        height: 7rem;
+        width: 7rem;
+        object-fit: cover;
+      }
     }
 
     @media (max-width: 31.2em) {

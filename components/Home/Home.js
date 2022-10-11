@@ -140,7 +140,7 @@ const Home = () => {
         setLoading(false);
       })
       .catch((err) => {
-        // router.push('/');
+        router.push('/');
 
         console.log(err);
       });

@@ -9,7 +9,7 @@ const Fixtures = () => {
   return (
     <div className={styles.fixtures}>
       <div className={styles.fixtures__heading}>
-        <h2>Coming Soon</h2>
+        {/* <h2>Coming Soon</h2> */}
       </div>
       {/* <div className={styles.fixtures_container}>
         <div className={styles.fixturebox}>

@@ -6,7 +6,7 @@ const Messages = () => {
   return (
     <div className={styles.messages}>
       <div className={styles.messages__heading}>
-        <h2>Coming Soon</h2>
+        {/* <h2>Coming Soon</h2> */}
       </div>
       <div className={styles.messages__container}>
         {/* <div className={styles.message}>
