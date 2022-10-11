@@ -132,7 +132,7 @@ const Home = () => {
   useEffect(() => {
     // try {
     const refreshData = axios
-      .get('https://league-of-billions.up.railway.app/refresh', {
+      .get('https://league-of-billions.up.railway.app/auth/refresh', {
         withCredentials: true,
       })
       .then((res) => {
