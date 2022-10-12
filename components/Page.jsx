@@ -17,7 +17,7 @@ export default function Page({ title, description, children }) {
         <meta property="og:title" content="LOB" />
         <meta name="twitter:card" content="summary" />
         <meta property="og:description" content="LOB || FPL Chats and Bants" />
-        <meta property="og:image" content={lob} />
+        <meta property="og:image:secure" content="../assets/lob.png" />
       </Head>
       <Header />
       <div className={styles.main}>
