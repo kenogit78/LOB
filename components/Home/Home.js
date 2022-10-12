@@ -295,9 +295,9 @@ const Home = () => {
           })
         )}
       </div>
-      <div className={styles.sidebar_bottom}>
+      {/* <div className={styles.sidebar_bottom}>
         <BottomNav setOpenModal={setOpenModal} />
-      </div>
+      </div> */}
     </div>
   );
 };

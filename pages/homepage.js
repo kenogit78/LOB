@@ -12,39 +12,15 @@ import { selectCurrentToken, selectCurrentUser } from '../auth/authSlice';
 import { wrapper, State } from '../store';
 import Page from '../components/Page';
 
-const homepage = ({ data, user }) => {
-  // const header = `Authorization: Bearer ${token}`;
-
-  // const user = useSelector((state) => state).auth;
-
-  // const accessToken = useSelector(selectCurrentToken);
-  // console.log(accessToken);
-
-  // console.log(user);
+const homepage = () => {
   return (
     <Page description="Chats and Bants" title="Home || LOB">
       <div className={styles.home_container}>
-        {/* <Header /> */}
-        {/* <div className={styles.main}> */}
-        {/* <div className={styles.main_sidebar}>
-            <Sidebar />
-          </div> */}
-        {/* <div className={styles.main_sidebar_bottom}>
-                <BottomNav />
-            </div> */}
-        {/* <div className={styles.main_home}> */}
         <Home />
-        {/* </div> */}
-        {/* <div className={styles.main_explore}>
-            <Explore />
-          </div> */}
-        {/* </div> */}
       </div>
     </Page>
   );
 };
-
-// export default ProtectedHOC(homepage);
 
 export const getServerSideProps = wrapper.getServerSideProps(
   ({ store }) =>
@@ -69,8 +45,6 @@ export const getServerSideProps = wrapper.getServerSideProps(
           props: {
             data,
             user: user,
-            // images: images.data,
-            // villages: villages.data,
           },
         };
       } catch {

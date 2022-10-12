@@ -7,8 +7,6 @@ import BottomNav from './BottomNav';
 import lob from '../assets/lob.png';
 
 export default function Page({ title, description, children }) {
-  // const editTitle = title?.includes(undefined) ? 'loading...' : title;
-
   return (
     <>
       <Head>

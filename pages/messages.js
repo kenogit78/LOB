@@ -12,23 +12,7 @@ const messages = () => {
   return (
     <Page description="Chats and Bants" title="messages || LOB">
       <div>
-        {/* <Header />
-      <div className={styles.main}>
-        <div className={styles.main_sidebar}>
-          <Sidebar />
-        </div> */}
         <p className="m-auto pt-5 text-4xl"> Coming soon</p>
-
-        {/* <div className={styles.main_sidebar_bottom}>
-          <BottomNav />
-        </div>
-        <div className={styles.main_home}>
-          <Messages />
-        </div>
-        <div className={styles.main_explore}>
-          <Explore />
-        </div>
-      </div> */}
       </div>
     </Page>
   );
