@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { selectCurrentToken, selectCurrentUser } from '../auth/authSlice';
 import { wrapper, State } from '../store';
+import Page from '../components/Page';
 
 const homepage = ({ data, user }) => {
   // const header = `Authorization: Bearer ${token}`;
@@ -21,23 +22,25 @@ const homepage = ({ data, user }) => {
 
   // console.log(user);
   return (
-    <div className={styles.home_container}>
-      <Header />
-      <div className={styles.main}>
-        <div className={styles.main_sidebar}>
-          <Sidebar />
-        </div>
+    <Page description="Chats and Bants" title="Home || LOB">
+      <div className={styles.home_container}>
+        {/* <Header /> */}
+        {/* <div className={styles.main}> */}
+        {/* <div className={styles.main_sidebar}>
+            <Sidebar />
+          </div> */}
         {/* <div className={styles.main_sidebar_bottom}>
                 <BottomNav />
             </div> */}
-        <div className={styles.main_home}>
-          <Home />
-        </div>
-        <div className={styles.main_explore}>
-          <Explore />
-        </div>
+        {/* <div className={styles.main_home}> */}
+        <Home />
+        {/* </div> */}
+        {/* <div className={styles.main_explore}>
+            <Explore />
+          </div> */}
+        {/* </div> */}
       </div>
-    </div>
+    </Page>
   );
 };
 

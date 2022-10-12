@@ -3,10 +3,14 @@ import PlayerImages from '../components/Onboarding/PlayerImages';
 import Signup from '../components/Onboarding/Signup';
 import styles from '../styles/OnboardingPage.module.scss';
 import Link from 'next/link';
+import Head from 'next/head';
 
 function signup() {
   return (
     <div className={`${styles.onboarding} h-screen`}>
+      <Head>
+        <title>LOB || Signup</title>
+      </Head>
       <PlayerImages />
       <div
         className={`${
